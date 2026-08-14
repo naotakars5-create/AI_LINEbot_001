@@ -1,0 +1,79 @@
+# 収集先の一覧
+# lang: en / ja  … 選抜のときの比率(英語7:日本語3)に使う
+# tier: primary  … 一次情報。同点なら優先される
+#
+# 追加したいときは行を足すだけ。要らないものは # で消す。
+
+feeds:
+  # ---------- 英語・一次情報（主軸） ----------
+  - name: Anthropic News
+    url: https://www.anthropic.com/rss.xml
+    lang: en
+    tier: primary
+
+  - name: OpenAI News
+    url: https://openai.com/news/rss.xml
+    lang: en
+    tier: primary
+
+  - name: Google DeepMind Blog
+    url: https://deepmind.google/blog/rss.xml
+    lang: en
+    tier: primary
+
+  - name: Google AI Blog
+    url: https://blog.google/technology/ai/rss/
+    lang: en
+    tier: primary
+
+  - name: Microsoft AI Blog
+    url: https://blogs.microsoft.com/ai/feed/
+    lang: en
+    tier: primary
+
+  - name: Meta AI Blog
+    url: https://ai.meta.com/blog/rss/
+    lang: en
+    tier: primary
+
+  - name: Hugging Face Blog
+    url: https://huggingface.co/blog/feed.xml
+    lang: en
+    tier: primary
+
+  # ---------- 英語・メディア ----------
+  - name: TechCrunch AI
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    lang: en
+    tier: media
+
+  - name: The Verge AI
+    url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+    lang: en
+    tier: media
+
+  - name: Ars Technica AI
+    url: https://arstechnica.com/ai/feed/
+    lang: en
+    tier: media
+
+  - name: Hacker News (150点以上)
+    url: https://hnrss.org/frontpage?points=150
+    lang: en
+    tier: media
+
+  # ---------- 日本語（国内事情の補完） ----------
+  - name: ITmedia AI+
+    url: https://rss.itmedia.co.jp/rss/2.0/aiplus.xml
+    lang: ja
+    tier: media
+
+  - name: Zenn AI
+    url: https://zenn.dev/topics/ai/feed
+    lang: ja
+    tier: media
+
+  - name: Publickey
+    url: https://www.publickey1.jp/atom.xml
+    lang: ja
+    tier: media

@@ -1,0 +1,266 @@
+:root {
+  --kiri:     #E6E9E3;
+  --washi:    #F3F4F0;
+  --sumi:     #22272A;
+  --ai:       #2F4858;
+  --midori:   #2E6F5E;
+  --yamabuki: #C98A12;
+  --usu:      #C3C9C0;
+
+  --mincho: "Shippori Mincho B1", serif;
+  --gothic: "Zen Kaku Gothic New", sans-serif;
+  --mono:   "IBM Plex Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--kiri);
+  color: var(--sumi);
+  font-family: var(--gothic);
+  font-size: 16px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 左端の縦レール ------------------------------------------------- */
+
+.rail {
+  position: fixed;
+  top: 0; left: 0;
+  width: 68px; height: 100vh;
+  border-right: 1px solid var(--usu);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.rail-date {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  color: var(--ai);
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+
+/* 見出し --------------------------------------------------------- */
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: var(--midori);
+  margin: 0 0 14px;
+}
+
+.head h1 {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: clamp(34px, 8vw, 46px);
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.head .wd {
+  font-size: 0.5em;
+  font-weight: 500;
+  color: var(--ai);
+  margin-left: 4px;
+}
+
+.lede {
+  font-size: 14px;
+  color: var(--ai);
+  margin: 14px 0 0;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--usu);
+}
+
+/* 記事 ----------------------------------------------------------- */
+
+.entry {
+  padding: 44px 0;
+  border-bottom: 1px solid var(--usu);
+  animation: rise .5s ease both;
+  animation-delay: calc(var(--n) * 60ms);
+}
+
+.entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.rank {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  width: 20px; height: 20px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ai);
+  color: var(--ai);
+}
+
+.rank[data-level="A"] {
+  border-color: var(--yamabuki);
+  background: var(--yamabuki);
+  color: var(--washi);
+}
+
+.source {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ai);
+}
+
+/* 原題と訳題の二層 ------------------------------------------------ */
+
+.original {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ai);
+  opacity: .62;
+  margin: 0 0 6px;
+}
+
+.translated {
+  font-family: var(--mincho);
+  font-weight: 700;
+  font-size: clamp(21px, 5vw, 25px);
+  line-height: 1.55;
+  margin: 0 0 20px;
+  letter-spacing: 0.01em;
+}
+
+.summary p {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+/* 何が変わったか -------------------------------------------------- */
+
+.diff {
+  margin: 24px 0 0;
+  padding: 16px 18px;
+  background: var(--washi);
+  border-left: 3px solid var(--midori);
+}
+
+.diff-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--midori);
+  margin-bottom: 6px;
+}
+
+.diff p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+/* 用語 ----------------------------------------------------------- */
+
+.terms {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px dotted var(--usu);
+}
+
+.term {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 6px;
+}
+
+.term-name {
+  font-family: var(--mono);
+  color: var(--ai);
+  flex: 0 0 auto;
+  min-width: 8em;
+}
+
+.term-desc { color: #4A5257; }
+
+/* リンク --------------------------------------------------------- */
+
+.link {
+  display: inline-block;
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--midori);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.link:hover { color: var(--sumi); }
+
+a:focus-visible {
+  outline: 2px solid var(--yamabuki);
+  outline-offset: 3px;
+}
+
+/* フッター ------------------------------------------------------- */
+
+.foot { padding-top: 40px; }
+
+.foot-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--ai);
+  margin: 0 0 12px;
+}
+
+.archive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.archive a {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ai);
+  text-decoration: none;
+  border-bottom: 1px solid var(--usu);
+}
+
+.archive a:hover { color: var(--midori); }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (max-width: 760px) {
+  .rail { display: none; }
+  main { padding: 40px 20px 72px; }
+  .term { flex-direction: column; gap: 0; }
+  .term-name { min-width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry { animation: none; }
+}

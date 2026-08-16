@@ -22,11 +22,13 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-import anthropic
 import feedparser
 import requests
 import trafilatura
 import yaml
+from google import genai
+from google.genai import errors as genai_errors
+from google.genai import types
 
 # ---------------------------------------------------------------- 設定
 
@@ -35,7 +37,9 @@ DOCS = ROOT / "docs"
 LOG_DIR = DOCS / "log"
 STATE_PATH = ROOT / "state.json"
 
-MODEL = "claude-haiku-4-5-20251001"   # 一番安いモデル。十分です
+# 使うモデル。無料枠のあるモデルを既定にしています。
+# 変えたいときは、GitHubのVariablesに GEMINI_MODEL を登録すればコード変更なしで差し替わります。
+MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.5-flash"
 PICK_COUNT = 5                        # 毎朝届く本数
 MAX_CANDIDATES = 60                   # AIに見せる候補の上限（コスト対策）
 HOURS_BACK = 36                       # 何時間前までの記事を新着とみなすか
@@ -47,6 +51,47 @@ LINE_LIMIT = 4900                     # LINEの1通あたり上限（5000）の�
 
 JST = timezone(timedelta(hours=9))
 UA = {"User-Agent": "Mozilla/5.0 (compatible; ai-news-bot/1.0)"}
+
+# 返してほしいJSONの形。モデル側にこの形を守らせるので、
+# 「前置きが付いていて読めない」といった崩れ方をしなくなる。
+PICK_SCHEMA = {
+    "type": "object",
+    "properties": {"picks": {"type": "array", "items": {"type": "integer"}}},
+    "required": ["picks"],
+}
+
+DIGEST_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "articles": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "index": {"type": "integer"},
+                    "title_ja": {"type": "string"},
+                    "summary": {"type": "array", "items": {"type": "string"}},
+                    "whats_new": {"type": "string"},
+                    "terms": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "term": {"type": "string"},
+                                "desc": {"type": "string"},
+                            },
+                            "required": ["term", "desc"],
+                        },
+                    },
+                    "importance": {"type": "string", "enum": ["A", "B", "C"]},
+                },
+                "required": ["index", "title_ja", "summary", "whats_new",
+                             "terms", "importance"],
+            },
+        }
+    },
+    "required": ["articles"],
+}
 
 
 # ---------------------------------------------------------------- 状態の保存
@@ -161,12 +206,12 @@ def select(client, articles: list) -> list:
 記事一覧:
 {listing}
 
-選んだ番号だけをJSON配列で返してください。説明は不要です。
-例: [3, 11, 24, 25, 40]"""
+選んだ番号を picks に入れて返してください。
+例: {{"picks": [3, 11, 24, 25, 40]}}"""
 
     try:
-        res = call_model(client, prompt, max_tokens=200)
-        picked = json.loads(extract_json(text_of(res)))
+        raw = call_model(client, prompt, max_tokens=2000, schema=PICK_SCHEMA)
+        picked = json.loads(extract_json(raw)).get("picks", [])
         chosen, used = [], set()
         for i in picked:
             if isinstance(i, int) and 0 <= i < len(candidates) and i not in used:
@@ -219,18 +264,20 @@ def summarize(client, articles: list) -> list:
 
 {chr(10).join(blocks)}
 
-各記事について、次のJSON配列で返してください。前置きもマークダウンの記号も不要です。
+各記事について、articles に次の形で入れて返してください。
 
-[
-  {{
-    "index": 0,
-    "title_ja": "日本語に訳したタイトル",
-    "summary": ["要約1行目", "要約2行目", "要約3行目"],
-    "whats_new": "これまでと比べて何が新しくなったのかを1〜2行で",
-    "terms": [{{"term": "専門用語", "desc": "1行の説明"}}],
-    "importance": "A"
-  }}
-]
+{{
+  "articles": [
+    {{
+      "index": 0,
+      "title_ja": "日本語に訳したタイトル",
+      "summary": ["要約1行目", "要約2行目", "要約3行目"],
+      "whats_new": "これまでと比べて何が新しくなったのかを1〜2行で",
+      "terms": [{{"term": "専門用語", "desc": "1行の説明"}}],
+      "importance": "A"
+    }}
+  ]
+}}
 
 書き方のルール:
 - summary は3行ちょうど。1行は40〜60字程度
@@ -240,8 +287,8 @@ def summarize(client, articles: list) -> list:
 - 本文が取得できていない記事は、タイトルと抜粋から分かる範囲で書き、無理に断定しない"""
 
     try:
-        res = call_model(client, prompt, max_tokens=4000)
-        data = json.loads(extract_json(text_of(res)))
+        raw = call_model(client, prompt, max_tokens=16000, schema=DIGEST_SCHEMA)
+        data = json.loads(extract_json(raw)).get("articles", [])
     except Exception as e:
         # 和訳に失敗しても、原題だけでもLINEに届けたい
         print(f"  [error] 和訳に失敗しました。原題のまま出します: {e}", file=sys.stderr)
@@ -263,26 +310,63 @@ def summarize(client, articles: list) -> list:
     return items
 
 
-def call_model(client, prompt: str, max_tokens: int, attempts: int = 3):
+RETRYABLE = {429, 500, 502, 503, 504}   # 混雑・一時的な障害。待てば直る
+
+
+def call_model(client, prompt: str, max_tokens: int, schema: dict,
+               attempts: int = 3) -> str:
     """一時的な失敗は少し待ってやり直す。設定ミスなど直らない失敗はすぐ諦める"""
     for n in range(attempts):
         try:
-            return client.messages.create(
+            res = client.models.generate_content(
                 model=MODEL,
-                max_tokens=max_tokens,
-                messages=[{"role": "user", "content": prompt}],
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    max_output_tokens=max_tokens,
+                    response_mime_type="application/json",
+                    response_json_schema=schema,
+                ),
             )
-        except (anthropic.RateLimitError, anthropic.InternalServerError,
-                anthropic.APIConnectionError) as e:
-            if n == attempts - 1:
+        except genai_errors.APIError as e:
+            if e.code == 404:
+                raise SystemExit(explain_missing_model(client, e)) from e
+            if e.code not in RETRYABLE or n == attempts - 1:
                 raise
             wait = 2 ** (n + 1)
-            print(f"  [retry] {type(e).__name__}: {wait}秒待ちます", file=sys.stderr)
+            print(f"  [retry] {e.code} {e.status}: {wait}秒待ちます", file=sys.stderr)
             time.sleep(wait)
+            continue
+
+        text = (res.text or "").strip()
+        if text:
+            return text
+        # 出力枠を使い切って本文が空、というのが一番ありがちな失敗
+        raise ValueError(f"応答が空です（finish_reason={finish_reason_of(res)}）。"
+                         f"max_output_tokens を増やすと直ることがあります")
+    raise RuntimeError("到達しません")
 
 
-def text_of(res) -> str:
-    return "".join(b.text for b in res.content if b.type == "text")
+def finish_reason_of(res) -> str:
+    try:
+        return str(res.candidates[0].finish_reason)
+    except (AttributeError, IndexError, TypeError):
+        return "不明"
+
+
+def explain_missing_model(client, err) -> str:
+    """モデル名が違うときに、使える名前を並べて教える"""
+    lines = [f"[error] モデル '{MODEL}' が見つかりません（{err.code} {err.status}）。"]
+    try:
+        names = sorted(
+            m.name.removeprefix("models/") for m in client.models.list()
+            if "generateContent" in (m.supported_actions or [])
+        )
+        if names:
+            lines.append("いま使えるモデル: " + ", ".join(names))
+    except Exception:
+        pass
+    lines.append("GitHubのVariablesに GEMINI_MODEL を登録すると差し替えられます。")
+    return "\n".join(lines)
 
 
 def extract_json(raw: str) -> str:
@@ -441,7 +525,7 @@ def main() -> None:
     args = ap.parse_args()
 
     send_line = not (args.dry_run or args.no_line)
-    require_env(["ANTHROPIC_API_KEY"]
+    require_env(["GEMINI_API_KEY"]
                 + (["LINE_CHANNEL_ACCESS_TOKEN", "LINE_USER_ID"] if send_line else []))
 
     now = datetime.now(JST)
@@ -459,7 +543,8 @@ def main() -> None:
         print("新着がないので終了します")
         return
 
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    print(f"  モデル: {MODEL}")
 
     print("[2] 選抜")
     picked = select(client, articles)

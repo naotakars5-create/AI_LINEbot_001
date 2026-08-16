@@ -29,10 +29,11 @@ jobs:
 
       - name: ダイジェストを作って送る
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
           PAGES_URL: ${{ vars.PAGES_URL }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}   # 未設定なら既定モデルを使います
         run: python main.py
 
       - name: 結果を保存

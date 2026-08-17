@@ -82,14 +82,31 @@ main {
   font-size: 14px;
   color: var(--ai);
   margin: 14px 0 0;
+}
+
+/* 重要度の凡例 --------------------------------------------------- */
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ai);
+  margin: 18px 0 0;
   padding-bottom: 40px;
   border-bottom: 1px solid var(--usu);
 }
+
+.legend .rank { margin-right: -8px; }
 
 /* 記事 ----------------------------------------------------------- */
 
 .entry {
   padding: 44px 0;
+  scroll-margin-top: 24px;   /* LINEのカードから飛んできたとき見出しが端に貼りつかないように */
   border-bottom: 1px solid var(--usu);
   animation: rise .5s ease both;
   animation-delay: calc(var(--n) * 60ms);

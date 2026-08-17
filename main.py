@@ -41,6 +41,7 @@ STATE_PATH = ROOT / "state.json"
 # 変えたいときは、GitHubのVariablesに GEMINI_MODEL を登録すればコード変更なしで差し替わります。
 MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.5-flash"
 PICK_COUNT = 5                        # 毎朝届く本数
+MIN_JA = 2                            # うち日本語を最低何本入れるか（候補があれば）
 MAX_CANDIDATES = 60                   # AIに見せる候補の上限（コスト対策）
 HOURS_BACK = 36                       # 何時間前までの記事を新着とみなすか
 BODY_CHARS = 6000                     # 1記事あたり読ませる本文の最大文字数
@@ -201,7 +202,8 @@ def select(client, articles: list) -> list:
 - 各社の公式発表（tier=primary）を優先する
 - 同じ話題が複数あるときは、一次情報の側を残して重複は落とす
 - 単なる資金調達・株価・人事の話は優先度を下げる
-- 英語ソースを3〜4本、日本語ソースを1〜2本の比率にする
+- 日本語ソースを2〜3本、英語ソースを2〜3本の比率にする。
+  日本語ソースは国内の動きを知るために必ず入れること
 
 記事一覧:
 {listing}
@@ -224,11 +226,37 @@ def select(client, articles: list) -> list:
                     break
                 if a not in chosen:
                     chosen.append(a)
-            return chosen[:PICK_COUNT]
+            return ensure_japanese(chosen[:PICK_COUNT], candidates)
         raise ValueError("有効な番号が返ってきませんでした")
     except Exception as e:
         print(f"  [warn] 選抜に失敗したので先頭から取ります: {e}", file=sys.stderr)
-        return candidates[:PICK_COUNT]
+        return ensure_japanese(candidates[:PICK_COUNT], candidates)
+
+
+def ensure_japanese(chosen: list, candidates: list) -> list:
+    """日本語の記事が少なすぎたら、英語の下位と入れ替えて必ず入れる。
+
+    プロンプトで比率を頼んでも守られないことがあるので、最後にコードで担保する。
+    候補に日本語がそもそも無い日は、無いなりの本数で通す。
+    """
+    have = sum(1 for a in chosen if a["lang"] == "ja")
+    if have >= MIN_JA:
+        return chosen
+
+    urls = {a["url"] for a in chosen}
+    spare = [a for a in candidates if a["lang"] == "ja" and a["url"] not in urls]
+    out = list(chosen)
+    while have < MIN_JA and spare:
+        # 入れ替える相手は、英語のうち一番うしろにあるもの
+        victim = next((i for i in range(len(out) - 1, -1, -1)
+                       if out[i]["lang"] != "ja"), None)
+        if victim is None:
+            break
+        swapped = spare.pop(0)
+        print(f"  [調整] 日本語を1本追加: {swapped['title'][:40]}", file=sys.stderr)
+        out[victim] = swapped
+        have += 1
+    return out
 
 
 # ---------------------------------------------------------------- 3. 本文取得と和訳
@@ -283,8 +311,15 @@ def summarize(client, articles: list) -> list:
 - summary は3行ちょうど。1行は40〜60字程度
 - whats_new は「内容の紹介」ではなく「前との差分」を書く。差分が読み取れないなら記事の位置づけを書く
 - terms はその記事に出てきた専門用語を2〜3個。初めて見る人向けの説明にする
-- importance は A（追う価値が高い）B（知っておく程度）C（参考）
-- 本文が取得できていない記事は、タイトルと抜粋から分かる範囲で書き、無理に断定しない"""
+- 本文が取得できていない記事は、タイトルと抜粋から分かる範囲で書き、無理に断定しない
+
+importance は次の基準で厳密に付けてください。印象ではなく、条件に当てはまるかで決めます。
+- A … 新しいモデル・製品・機能が「いま実際に使えるようになった」発表。
+      読んだ人がその日のうちに試したり、仕事のやり方を変えたりしうるもの。
+- B … 重要だが、いますぐ動く必要はないもの。
+      研究成果、方針や計画の表明、提携・買収、規制やルールの動き。
+- C … 上記以外。解説・考察・まとめ・体験記など、背景を知るための記事。
+迷ったら低いほうを付けてください。Aは1日に0〜2本程度が適正です。"""
 
     try:
         raw = call_model(client, prompt, max_tokens=16000, schema=DIGEST_SCHEMA)
@@ -325,6 +360,10 @@ def call_model(client, prompt: str, max_tokens: int, schema: dict,
                     max_output_tokens=max_tokens,
                     response_mime_type="application/json",
                     response_json_schema=schema,
+                    # 道具は渡していないので切っておく（警告がログに出るのを防ぐ）
+                    automatic_function_calling=types.AutomaticFunctionCallingConfig(
+                        disable=True
+                    ),
                 ),
             )
         except genai_errors.APIError as e:
@@ -398,7 +437,7 @@ def render(items: list, date: datetime, archive: list, depth: int) -> str:
         )
         summary = "".join(f"<p>{esc(line)}</p>" for line in (it.get("summary") or []))
         articles_html.append(f"""
-      <article class="entry" style="--n:{n}">
+      <article class="entry" id="n{n}" style="--n:{n}">
         <div class="entry-meta">
           <span class="rank" data-level="{esc(it.get('importance','B'))}">{esc(it.get('importance','B'))}</span>
           <span class="source">{esc(it['source'])}</span>
@@ -436,7 +475,12 @@ def render(items: list, date: datetime, archive: list, depth: int) -> str:
     <header class="head">
       <p class="eyebrow">AI DIGEST</p>
       <h1>{date.month}月{date.day}日<span class="wd">（{weekday}）</span></h1>
-      <p class="lede">今朝の{len(items)}本。英語の一次情報を中心に、日本語に直して並べています。</p>
+      <p class="lede">今朝の{len(items)}本。海外の一次情報と国内の動きを、日本語に直して並べています。</p>
+      <p class="legend">
+        <span class="rank" data-level="A">A</span>すぐ使える
+        <span class="rank" data-level="B">B</span>知っておく
+        <span class="rank" data-level="C">C</span>参考
+      </p>
     </header>
     {"".join(articles_html)}
     <footer class="foot">
@@ -469,19 +513,142 @@ def build_pages(items: list, now: datetime) -> str:
 
 # ---------------------------------------------------------------- 5. LINE送信
 
-def push_line(text: str) -> None:
+RANK_COLOR = {"A": "#C98A12", "B": "#2F4858", "C": "#6B7770"}
+RANK_LABEL = {"A": "すぐ使える", "B": "知っておく", "C": "参考"}
+
+
+def is_http_url(u) -> bool:
+    return isinstance(u, str) and u.startswith(("http://", "https://"))
+
+
+def button(label: str, uri: str, primary: bool = False) -> dict:
+    b = {"type": "button", "height": "sm",
+         "action": {"type": "uri", "label": label[:20], "uri": uri}}
+    if primary:
+        b["style"], b["color"] = "primary", "#2E6F5E"
+    else:
+        b["style"] = "link"
+    return b
+
+
+def build_flex(items: list, now: datetime, page_url: str) -> dict:
+    """1記事1枚のカードを横に並べる（LINEのFlex Message / carousel）"""
+    weekday = "月火水木金土日"[now.weekday()]
+    bubbles = []
+
+    for n, it in enumerate(items, 1):
+        rank = str(it.get("importance", "B")).upper()
+        if rank not in RANK_COLOR:
+            rank = "B"
+        title = (it.get("title_ja") or it.get("title") or "").strip() or "(無題)"
+        head = ((it.get("summary") or [""])[0] or "").strip()
+
+        body = [{"type": "text", "text": title[:120], "weight": "bold",
+                 "size": "md", "wrap": True, "maxLines": 4, "color": "#22272A"}]
+        if head:
+            body.append({"type": "text", "text": head[:200], "size": "sm",
+                         "wrap": True, "maxLines": 4, "margin": "md",
+                         "color": "#5A6469"})
+
+        footer = []
+        if is_http_url(it.get("url")):
+            footer.append(button("原文", it["url"]))
+        if is_http_url(page_url):
+            footer.append(button("くわしく", f"{page_url}#n{n}"))
+
+        bubble = {
+            "type": "bubble",
+            "size": "kilo",
+            "header": {
+                "type": "box", "layout": "horizontal", "spacing": "sm",
+                "paddingAll": "10px", "backgroundColor": RANK_COLOR[rank],
+                "contents": [
+                    {"type": "text", "text": f"{rank}・{RANK_LABEL[rank]}",
+                     "size": "xs", "weight": "bold", "color": "#FFFFFF", "flex": 0},
+                    {"type": "text", "text": str(it.get("source", ""))[:22],
+                     "size": "xs", "color": "#FFFFFF", "align": "end",
+                     "gravity": "center"},
+                ],
+            },
+            "body": {"type": "box", "layout": "vertical", "paddingAll": "14px",
+                     "contents": body},
+        }
+        if footer:
+            bubble["footer"] = {"type": "box", "layout": "horizontal",
+                                "spacing": "sm", "paddingAll": "6px",
+                                "contents": footer}
+        bubbles.append(bubble)
+
+    # 最後に、全文ページへ渡すための1枚
+    if is_http_url(page_url):
+        bubbles.append({
+            "type": "bubble", "size": "kilo",
+            "body": {
+                "type": "box", "layout": "vertical", "spacing": "md",
+                "paddingAll": "18px",
+                "contents": [
+                    {"type": "text", "text": f"{now.month}月{now.day}日（{weekday}）",
+                     "size": "sm", "color": "#5A6469"},
+                    {"type": "text", "text": f"今朝の{len(items)}本", "size": "xl",
+                     "weight": "bold", "color": "#22272A"},
+                    {"type": "text",
+                     "text": "3行要約・何が変わったか・専門用語の解説つき",
+                     "size": "sm", "wrap": True, "color": "#5A6469"},
+                    {"type": "separator", "margin": "md"},
+                    {"type": "text",
+                     "text": "A＝すぐ使える  B＝知っておく  C＝参考",
+                     "size": "xs", "wrap": True, "color": "#8A9296"},
+                ],
+            },
+            "footer": {"type": "box", "layout": "vertical", "paddingAll": "6px",
+                       "contents": [button("全文の和訳を読む", page_url, primary=True)]},
+        })
+
+    return {"type": "flex", "altText": build_alt(items, now),
+            "contents": {"type": "carousel", "contents": bubbles}}
+
+
+def build_alt(items: list, now: datetime) -> str:
+    """通知欄に出る文字。400字までなので短く"""
+    weekday = "月火水木金土日"[now.weekday()]
+    lines = [f"AI Digest {now.month}/{now.day}（{weekday}）"]
+    for n, it in enumerate(items, 1):
+        lines.append(f"{n}. {it.get('title_ja') or it.get('title','')}")
+    text = "\n".join(lines)
+    return text[:390] + "…" if len(text) > 390 else text
+
+
+def push_line(messages: list) -> bool:
     token = os.environ["LINE_CHANNEL_ACCESS_TOKEN"]
     user_id = os.environ["LINE_USER_ID"]
-    res = requests.post(
-        "https://api.line.me/v2/bot/message/push",
-        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
-        json={"to": user_id, "messages": [{"type": "text", "text": text}]},
-        timeout=20,
-    )
+    try:
+        res = requests.post(
+            "https://api.line.me/v2/bot/message/push",
+            headers={"Authorization": f"Bearer {token}",
+                     "Content-Type": "application/json"},
+            json={"to": user_id, "messages": messages},
+            timeout=20,
+        )
+    except requests.RequestException as e:
+        print(f"  [error] LINEに繋がりません: {e}", file=sys.stderr)
+        return False
     if res.status_code != 200:
-        print(f"  [error] LINE送信に失敗: {res.status_code} {res.text}", file=sys.stderr)
-        sys.exit(1)
-    print("  LINEに送信しました")
+        print(f"  [error] LINE送信に失敗: {res.status_code} {res.text}",
+              file=sys.stderr)
+        return False
+    return True
+
+
+def send_digest(items: list, now: datetime, page_url: str) -> None:
+    """カードで送る。カードが弾かれたら文字だけで送り直す"""
+    if push_line([build_flex(items, now, page_url)]):
+        print("  LINEにカードで送信しました")
+        return
+    print("  [warn] カードで送れなかったので、文字だけで送り直します", file=sys.stderr)
+    if push_line([{"type": "text", "text": build_message(items, now, page_url)}]):
+        print("  LINEに送信しました（文字のみ）")
+        return
+    sys.exit(1)
 
 
 def build_message(items: list, now: datetime, page_url: str) -> str:
@@ -572,7 +739,7 @@ def main() -> None:
 
     if send_line:
         print("[5] LINE送信")
-        push_line(build_message(items, now, page_url))
+        send_digest(items, now, page_url)
     else:
         print("[5] LINE送信（--no-line のため送りません）")
         print(build_message(items, now, page_url))

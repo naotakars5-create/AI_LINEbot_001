@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Digest 2026-10-16</title>
+<title>AI Digest 2026-10-17</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="rail"><span class="rail-date">2026.10.16</span></div>
+  <div class="rail"><span class="rail-date">2026.10.17</span></div>
   <main>
     <header class="head">
       <p class="eyebrow">AI DIGEST</p>
-      <h1>10月16日<span class="wd">（金）</span></h1>
+      <h1>10月17日<span class="wd">（土）</span></h1>
       <p class="lede">今朝の5本。海外の一次情報と国内の動きを、日本語に直して並べています。</p>
       <p class="legend">
         <span class="rank" data-level="A">A</span>すぐ使える
@@ -25,67 +25,82 @@
     
       <article class="entry" id="n1" style="--n:1">
         <div class="entry-meta">
-          <span class="rank" data-level="B">B</span>
-          <span class="source">OpenAI News</span>
+          <span class="rank" data-level="A">A</span>
+          <span class="source">Hugging Face Blog</span>
         </div>
-        <p class="original">Bringing GPT-Rosalind to academic research labs</p>
-        <h2 class="translated">Bringing GPT-Rosalind to academic research labs</h2>
-        <div class="summary"></div>
-        
-        
-        <a class="link" href="https://openai.com/index/introducing-the-rosalind-academic-plan" target="_blank" rel="noopener">原文を読む</a>
+        <p class="original">Welcome Beam: a 501B open model you can own, customize, and scale</p>
+        <h2 class="translated">オープンモデル「Beam」発表：自社環境でカスタマイズ・拡張可能な501Bモデル</h2>
+        <div class="summary"><p>コード記述やエージェント処理に特化した501BのMoEモデル「Beam」が公開されました。</p><p>トークンあたり23Bが駆動し、100万トークンの長文文脈に対応しつつ高速に動作します。</p><p>Apache 2.0ライセンスで提供され、vLLMやSGLangで即座に試すことが可能です。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>501Bの超大規模モデルでありながら、23B並みの計算速度と100万トークンの長文対応を両立したオープンモデルとして新たに利用可能になりました。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">MoE</span><span class="term-desc">入力に応じて特定の専門ネットワーク（エキスパート）のみを呼び出して処理を効率化する構成</span></div><div class="term"><span class="term-name">スライディングウィンドウアテンション</span><span class="term-desc">直前の一定トークン範囲のみに注目することで計算量を削減し、長文処理を効率化する仕組み</span></div></div>
+        <a class="link" href="https://huggingface.co/blog/reflection-beam" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n2" style="--n:2">
         <div class="entry-meta">
-          <span class="rank" data-level="B">B</span>
-          <span class="source">Google DeepMind Blog</span>
+          <span class="rank" data-level="A">A</span>
+          <span class="source">Hugging Face Blog</span>
         </div>
-        <p class="original">Accelerating the search for antimicrobial peptides with Google Antigravity</p>
-        <h2 class="translated">Accelerating the search for antimicrobial peptides with Google Antigravity</h2>
-        <div class="summary"></div>
-        
-        
-        <a class="link" href="https://deepmind.google/blog/accelerating-antimicrobial-discovery/" target="_blank" rel="noopener">原文を読む</a>
+        <p class="original">Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint</p>
+        <h2 class="translated">Granite Switch 4.1：会話・意思決定・音声認識を1つのエンドポイントで統合提供</h2>
+        <div class="summary"><p>チャット、意思決定、音声テキスト化の3機能を1つのモデルに集約した新モデルが公開されました。</p><p>Activated LoRA技術の活用により、単一モデルと同等のメモリ使用量と超高速切り替えを実現します。</p><p>vLLMやllama.cppでそのまま動作し、既存システムへスムーズに組み込むことが可能です。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>従来は別々に運用していた会話、安全判断などの意思決定、音声認識モデルを単一エンドポイントかつ同一メモリサイズで統合運用できるようになりました。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">aLoRA</span><span class="term-desc">ベースモデルのキャッシュを共有し、必要なタスク用アダプタを効率よく動的に切り替える技術</span></div><div class="term"><span class="term-name">KVキャッシュ</span><span class="term-desc">過去の推論結果（Key/Value）を保持しておき、続く計算の重複を避けて高速化する仕組み</span></div></div>
+        <a class="link" href="https://huggingface.co/blog/ibm-granite/granite-switch-4-1" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n3" style="--n:3">
         <div class="entry-meta">
           <span class="rank" data-level="B">B</span>
-          <span class="source">Hugging Face Blog</span>
+          <span class="source">CNET Japan</span>
         </div>
-        <p class="original">Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta</p>
-        <h2 class="translated">Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta</h2>
-        <div class="summary"></div>
-        
-        
-        <a class="link" href="https://huggingface.co/blog/meta-muse-spark-open" target="_blank" rel="noopener">原文を読む</a>
+        <p class="original">亡くなった声優の声、AIでの再現は原則禁止　日俳連が新指針</p>
+        <h2 class="translated">故人の声のAI再現は原則禁止：日本俳優連合が音声AI利用の新ガイドラインを発表</h2>
+        <div class="summary"><p>日本俳優連合が俳優や声優の声を生成AIで利用する際の自主ガイドラインを発表しました。</p><p>AI学習や再現、作品利用には事前の書面同意が必要で、有効期間は原則最長1年と定められました。</p><p>亡くなった声優などの声をAIで再現することは原則禁止とされ、生前同意などの例外に限られます。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>明確な法整備が追いついていない音声のAI無断利用に対し、事前書面同意や対価支払い、故人音声再現の禁止ルールを盛り込んだガイドラインが制定されました。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">実演家</span><span class="term-desc">俳優や声優、歌手など、著作物や演技を実際に演じて表現する人のこと</span></div><div class="term"><span class="term-name">自主基準</span><span class="term-desc">法律による強制力ではなく、業界団体などが独自に定めて運用する行動指針やルールのこと</span></div></div>
+        <a class="link" href="https://japan.cnet.com/article/35253656/" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n4" style="--n:4">
         <div class="entry-meta">
-          <span class="rank" data-level="B">B</span>
-          <span class="source">Googleニュース（生成AI）</span>
+          <span class="rank" data-level="A">A</span>
+          <span class="source">CNET Japan</span>
         </div>
-        <p class="original">日本俳優連合が音声生成AIの自主ガイドラインを発表　学習・生成・利用に事前許諾を求める - リアルサウンド</p>
-        <h2 class="translated">日本俳優連合が音声生成AIの自主ガイドラインを発表　学習・生成・利用に事前許諾を求める - リアルサウンド</h2>
-        <div class="summary"></div>
-        
-        
-        <a class="link" href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE02X1pmaG5mLWZnTGNqSlpuRy1SUzdpZmN4S1hqX2t3YXRURm1hcFJScUxjN1ltbWVRT1Q5dUNpOWs3QjBDUHJlRDQ4Yk1PUGZMT0dwN3duMU05bFpsbVBYd9IBZkFVX3lxTE9DVzlhb3B4R1M3aHoyczZmcHh4SVIyU0NlTW1iMzR6LXRPUUE2ZU0yOGRXX2k0NGQ1UnMyS2IybWlxc054SkwwQVFOV0x2elZpY1VONVZGb0dsTGJ2aE12XzFkTEJFUQ?oc=5" target="_blank" rel="noopener">原文を読む</a>
+        <p class="original">3時間先までの雨予測をAIで改善　ウェザーニュースアプリに本格実装</p>
+        <h2 class="translated">3時間先までの雨予測精度を向上：「ウェザーニュース」アプリに気象AIを本格実装</h2>
+        <div class="summary"><p>ウェザーニューズが独自開発したAI気象予測モデル「AI-Nowcast」をアプリに導入しました。</p><p>過去6年分のデータとリアルタイム観測値を学習し、ゲリラ豪雨などの急激な雨雲発達に対応します。</p><p>従来モデルと比べて強い雨の見逃し率が下がり、1〜3時間先の雨予測精度が大幅に改善しました。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>独自のAIモデル「AI-Nowcast」を正式採用したことで、これまで困難だった1〜3時間先の急激な雨予測の精度が向上しました。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">ナウキャスト</span><span class="term-desc">数時間先までの極めて近い未来を対象とする高精度な短時間気象予測のこと</span></div><div class="term"><span class="term-name">スレットスコア</span><span class="term-desc">予測の「見逃し」と「空振り」の両方を考慮して適確さを評価する気象分野の指標</span></div></div>
+        <a class="link" href="https://japan.cnet.com/article/35253654/" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n5" style="--n:5">
         <div class="entry-meta">
-          <span class="rank" data-level="B">B</span>
-          <span class="source">GIGAZINE</span>
+          <span class="rank" data-level="A">A</span>
+          <span class="source">Googleニュース（生成AI）</span>
         </div>
-        <p class="original">リーナス・トーバルズがClaude CodeなどのAIをバリバリ活用してLinuxカーネルの改善に取り組み中</p>
-        <h2 class="translated">リーナス・トーバルズがClaude CodeなどのAIをバリバリ活用してLinuxカーネルの改善に取り組み中</h2>
-        <div class="summary"></div>
-        
-        
-        <a class="link" href="https://gigazine.net/news/20261016-linus-torvalds-claude-code/" target="_blank" rel="noopener">原文を読む</a>
+        <p class="original">快手、動画生成AI「Kling 4.0」を正式リリース 30秒生成と15点参照、APIも近く提供 - ビジネス+IT</p>
+        <h2 class="translated">快手が動画生成AI「Kling 4.0」を正式リリース：30秒生成と15点参照に対応</h2>
+        <div class="summary"><p>中国の快手が動画生成AIの最新版「Kling 4.0」を正式にリリースしたことが発表されました。</p><p>最長30秒の動画生成に対応するほか、最大15点の参照ポイントを設定した高精度な生成が可能です。</p><p>開発者や事業者向けに、システム統合用のAPI提供も近く開始される予定となっています。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>前バージョンから生成可能時間が伸びて30秒に対応し、15点の参照画像指定機能が追加された新バージョンが提供開始されました。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">動画生成AI</span><span class="term-desc">テキストや画像などの入力情報をもとに、関連する短い動画を自動で生成する人工知能技術</span></div><div class="term"><span class="term-name">API</span><span class="term-desc">外部プログラムから特定の機能やサービスを呼び出して自動で利用するための接続口</span></div></div>
+        <a class="link" href="https://news.google.com/rss/articles/CBMiU0FVX3lxTFB1azlNTGhuOUZUazctSjBVQ3AwOFFHak9tQ1d6TVVmc0s3bmxfOEhUZlR0VlBwN29mU0pVMkFLek5vM3MtSkM5eGN3OFNYbXg0SGZR?oc=5" target="_blank" rel="noopener">原文を読む</a>
       </article>
     <footer class="foot">
       <p class="foot-label">過去の分</p>
-      <nav class="archive"><a href="log/2026-10-16.html">10/16</a><a href="log/2026-10-15.html">10/15</a><a href="log/2026-10-14.html">10/14</a><a href="log/2026-10-13.html">10/13</a><a href="log/2026-10-12.html">10/12</a><a href="log/2026-10-11.html">10/11</a><a href="log/2026-10-10.html">10/10</a><a href="log/2026-10-09.html">10/09</a><a href="log/2026-10-08.html">10/08</a><a href="log/2026-10-07.html">10/07</a><a href="log/2026-10-06.html">10/06</a><a href="log/2026-10-05.html">10/05</a><a href="log/2026-10-04.html">10/04</a><a href="log/2026-10-03.html">10/03</a></nav>
+      <nav class="archive"><a href="log/2026-10-17.html">10/17</a><a href="log/2026-10-16.html">10/16</a><a href="log/2026-10-15.html">10/15</a><a href="log/2026-10-14.html">10/14</a><a href="log/2026-10-13.html">10/13</a><a href="log/2026-10-12.html">10/12</a><a href="log/2026-10-11.html">10/11</a><a href="log/2026-10-10.html">10/10</a><a href="log/2026-10-09.html">10/09</a><a href="log/2026-10-08.html">10/08</a><a href="log/2026-10-07.html">10/07</a><a href="log/2026-10-06.html">10/06</a><a href="log/2026-10-05.html">10/05</a><a href="log/2026-10-04.html">10/04</a></nav>
     </footer>
   </main>
 </body>

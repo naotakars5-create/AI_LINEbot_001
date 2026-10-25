@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Digest 2026-10-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="rail"><span class="rail-date">2026.10.25</span></div>
+  <main>
+    <header class="head">
+      <p class="eyebrow">AI DIGEST</p>
+      <h1>10月25日<span class="wd">（日）</span></h1>
+      <p class="lede">今朝の5本。海外の一次情報と国内の動きを、日本語に直して並べています。</p>
+      <p class="legend">
+        <span class="rank" data-level="A">A</span>すぐ使える
+        <span class="rank" data-level="B">B</span>知っておく
+        <span class="rank" data-level="C">C</span>参考
+      </p>
+    </header>
+    
+      <article class="entry" id="n1" style="--n:1">
+        <div class="entry-meta">
+          <span class="rank" data-level="C">C</span>
+          <span class="source">OpenAI News</span>
+        </div>
+        <p class="original">Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)</p>
+        <h2 class="translated">10億人以上のChatGPTユーザーを支えるオンラインストレージの急速な拡張（パートII）</h2>
+        <div class="summary"><p>OpenAIは10億人規模のユーザーを支えるためストレージ基盤Habitatを運用している。</p><p>単一テナントからマルチテナントへの移行や物理パーティションの制約課題に取り組んだ。</p><p>Azure Cosmos DBの標準機能を活用し大規模環境での効率的なデータ管理を実現した。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>単一テナントからマルチテナント構成への回帰とAzure Cosmos DBの最適化ノウハウを公開した点。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">Azure Cosmos DB</span><span class="term-desc">マイクロソフトが提供する世界規模で分散可能なマルチモデルデータベースサービス。</span></div><div class="term"><span class="term-name">マルチテナンシー</span><span class="term-desc">複数の顧客やシステムで単一のデータベースやインフラリソースを共有して運用する方式。</span></div><div class="term"><span class="term-name">論理パーティション</span><span class="term-desc">共通のパーティションキーを持つデータの集まりで、データベース内の論理的な単位。</span></div></div>
+        <a class="link" href="https://openai.com/index/scaling-storage-one-billion-users-part-two" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+      <article class="entry" id="n2" style="--n:2">
+        <div class="entry-meta">
+          <span class="rank" data-level="B">B</span>
+          <span class="source">Hugging Face Blog</span>
+        </div>
+        <p class="original">LitPivot: Developing research ideas through dynamic contextualization within the literature landscape</p>
+        <h2 class="translated">LitPivot：文献環境での動的文脈化による研究アイデアの展開</h2>
+        <div class="summary"><p>先行研究の読解から研究の方向性を転換・発展させる論文主導のピボット支援ツールを開発した。</p><p>提案内容を課題や貢献などに分解し関連論文の比較から具体的な修正案や批判を提示する。</p><p>実験により従来ツールより文献根拠が明確で新規性と有用性の高い提案を作成できると実証された。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>アイデアの要素分解と関連論文のグループ化により文献に根ざした研究方針の修正を自動支援する点。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">ピボット</span><span class="term-desc">従来の方向性やアイデアを文献などの新たな知見に基づいて軌道修正・転換すること。</span></div><div class="term"><span class="term-name">ファセット抽出</span><span class="term-desc">アイデアやテキストを課題・貢献・評価方法などの構成要素に分割して分析する手法。</span></div></div>
+        <a class="link" href="https://huggingface.co/blog/allenai/litpivot" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+      <article class="entry" id="n3" style="--n:3">
+        <div class="entry-meta">
+          <span class="rank" data-level="B">B</span>
+          <span class="source">CNET Japan</span>
+        </div>
+        <p class="original">「たった2文字」でAIロボットが豹変、果物ではなく「ヒトの手」を切ってしまう--米研究</p>
+        <h2 class="translated">「たった2文字」でAIロボットが豹変、果物ではなく「ヒトの手」を切ってしまう--米研究</h2>
+        <div class="summary"><p>指示の末尾に特定の文字を加えることでAIロボットに危険行動をとらせる攻撃手法が発表された。</p><p>LLMの微調整段階にバックドアを仕込むことで特定のトリガー文字列入力時に誤動作を起こさせる。</p><p>対策として文脈と一連の動作履歴から次の動作の安全性を判定する防御システムも開発された。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>ロボット制御用LLMに対するバックドア攻撃の手法と時系列の動作履歴を考慮した防御策を提案した点。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">バックドア攻撃</span><span class="term-desc">AIモデルの訓練時に特定のトリガーで悪意ある動作を引き起こす不正な仕掛けを埋め込む攻撃。</span></div><div class="term"><span class="term-name">LLM</span><span class="term-desc">大規模なテキストデータで学習され人間のような自然な文章の生成や理解が行えるAIモデル。</span></div></div>
+        <a class="link" href="https://japan.cnet.com/article/35253926/" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+      <article class="entry" id="n4" style="--n:4">
+        <div class="entry-meta">
+          <span class="rank" data-level="B">B</span>
+          <span class="source">Googleニュース（生成AI）</span>
+        </div>
+        <p class="original">NEC、生成AIなどを活用し顧客の課題発見を支援する「BluStellar Studio」を開設 - EnterpriseZine</p>
+        <h2 class="translated">NEC、生成AIなどを活用し顧客の課題発見を支援する「BluStellar Studio」を開設</h2>
+        <div class="summary"><p>NECが生成AIなどの先端技術を活用して顧客の課題発見を支援する拠点を新たに開設した。</p><p>顧客企業との共創を通じて潜在的なビジネス課題の可視化や解決策の検証を迅速に推進する。</p><p>最新技術と知見を融合させることで企業のデジタル変革と新規事業創出の加速を目指す。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>生成AIを活用した顧客支援機能を持つ専用拠点「BluStellar Studio」を新たに立ち上げた点。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">生成AI</span><span class="term-desc">テキストや画像などをAIが自律的に作成・出力する技術の総称。</span></div><div class="term"><span class="term-name">DX</span><span class="term-desc">デジタル技術を活用して業務プロセスやビジネスモデルを変革し競争上の優位性を構築すること。</span></div></div>
+        <a class="link" href="https://news.google.com/rss/articles/CBMiVkFVX3lxTFBwdkFUMk93RXdjNy1VaHJKYzJLMmthNVhDVVQ1cjFZMmtjazlHVEF3d09NYUI1ak41a3hoNmpXNmlFMldQR0xmdGJKZXRTRjJMSkVmU2t3?oc=5" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+      <article class="entry" id="n5" style="--n:5">
+        <div class="entry-meta">
+          <span class="rank" data-level="C">C</span>
+          <span class="source">Zenn AI</span>
+        </div>
+        <p class="original">AI Codingは画面の外へ。Anthropicの展示とDevelopersIOで感じた可能性</p>
+        <h2 class="translated">AI Codingは画面の外へ。Anthropicの展示とDevelopersIOで感じた可能性</h2>
+        <div class="summary"><p>Anthropicの作品展と技術イベントに参加し画面外でのAI活用可能性について体験した。</p><p>音や光の制御に加えClaude Codeを用いたロボットのリアルタイムな動作実装を観察した。</p><p>未経験分野でもAIの支援を受けることでハードウェア開発などに挑戦しやすくなると実感した。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>従来ソフトウェア中心だったAIコーディングがロボット制御など物理世界へ拡張された事例の観察報告。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">Vibe Coding</span><span class="term-desc">AIに自然言語で指示を出しインタラクティブにコードを生成・修正していく開発スタイル。</span></div><div class="term"><span class="term-name">Anthropic</span><span class="term-desc">高性能な対話型AIモデルであるClaudeシリーズを開発しているAI研究開発企業。</span></div></div>
+        <a class="link" href="https://zenn.dev/tk_1/articles/fda1f430993d6c" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+    <footer class="foot">
+      <p class="foot-label">過去の分</p>
+      <nav class="archive"><a href="../log/2026-10-25.html">10/25</a><a href="../log/2026-10-24.html">10/24</a><a href="../log/2026-10-23.html">10/23</a><a href="../log/2026-10-22.html">10/22</a><a href="../log/2026-10-21.html">10/21</a><a href="../log/2026-10-20.html">10/20</a><a href="../log/2026-10-19.html">10/19</a><a href="../log/2026-10-18.html">10/18</a><a href="../log/2026-10-17.html">10/17</a><a href="../log/2026-10-16.html">10/16</a><a href="../log/2026-10-15.html">10/15</a><a href="../log/2026-10-14.html">10/14</a><a href="../log/2026-10-13.html">10/13</a><a href="../log/2026-10-12.html">10/12</a></nav>
+    </footer>
+  </main>
+</body>
+</html>

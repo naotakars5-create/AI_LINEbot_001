@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Digest 2026-11-11</title>
+<title>AI Digest 2026-11-12</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="rail"><span class="rail-date">2026.11.11</span></div>
+  <div class="rail"><span class="rail-date">2026.11.12</span></div>
   <main>
     <header class="head">
       <p class="eyebrow">AI DIGEST</p>
-      <h1>11月11日<span class="wd">（水）</span></h1>
+      <h1>11月12日<span class="wd">（木）</span></h1>
       <p class="lede">今朝の5本。海外の一次情報と国内の動きを、日本語に直して並べています。</p>
       <p class="legend">
         <span class="rank" data-level="A">A</span>すぐ使える
@@ -26,81 +26,81 @@
       <article class="entry" id="n1" style="--n:1">
         <div class="entry-meta">
           <span class="rank" data-level="A">A</span>
-          <span class="source">Google DeepMind Blog</span>
+          <span class="source">Google AI Blog</span>
         </div>
-        <p class="original">Gemini 4 Carbon is now available</p>
-        <h2 class="translated">「Gemini 4 Carbon」が一般提供を開始：サイバーセキュリティと高度推論に特化した最先端モデル</h2>
-        <div class="summary"><p>Google DeepMindが最高峰の性能を持つAIモデル「Gemini 4 Carbon」の一般提供を開始した。</p><p>サイバーセキュリティ調査や複雑なコードのデバッグ、科学的研究など深い推論が必要なタスクに特化している。</p><p>Google AI Studio等の有料プラン向けに前モデルArgonと同価格のインフラコストで順次提供される。</p></div>
+        <p class="original">Gemini Decisions API: Fast, calibrated multimodal decisions</p>
+        <h2 class="translated">Google、高速・低コストでマルチモーダル判断を行う「Gemini Decisions API」を発表</h2>
+        <div class="summary"><p>GoogleがGemini API向けに高速・高精度な判断に特化した「Gemini Decisions API」の提供を開始した。</p><p>単一の順伝播処理により出力トークンの生成を行わず、最速150ミリ秒という低遅延かつ低コストでの評価を実現する。</p><p>テキストや画像、動画などのマルチモーダル入力に対応し、ツールの選択や安全性の自動検証などに活用できる。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>前モデルのArgonより多くのトークンを消費して検証ループを実行し、高度な推論とマルチステップのタスク処理を可能にした点。</p>
+          <p>従来のようにトークンを1つずつ生成せず、単一の順伝播で選択肢の確率を算出することで、大幅な高速化と低コスト化を達成した。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">Agentic workflow（エージェント型ワークフロー）</span><span class="term-desc">AIが自律的に計画を立て、ツールを呼び出しながら複雑な目的を達成する一連の自動化作業手順。</span></div><div class="term"><span class="term-name">Zero-day vulnerability（ゼロデイ脆弱性）</span><span class="term-desc">修正プログラムが提供される前に修正されていない状態で存在する安全上の不具合のこと。</span></div></div>
-        <a class="link" href="https://deepmind.google/blog/gemini-4-carbon-is-now-available/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">順伝播（Forward Pass）</span><span class="term-desc">ニューラルネットワークにおいて、入力データから出力に向かって一方向に計算を進める処理。</span></div><div class="term"><span class="term-name">キャリブレーション</span><span class="term-desc">モデルが出力する予測確率と、実際の正解率がどれだけ一致しているかを示す信頼性の度合い。</span></div></div>
+        <a class="link" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n2" style="--n:2">
         <div class="entry-meta">
           <span class="rank" data-level="B">B</span>
           <span class="source">Google DeepMind Blog</span>
         </div>
-        <p class="original">Introducing AlphaProof Code: a breakthrough in verifying complex software at depth</p>
-        <h2 class="translated">AlphaProof Codeの発表：高度なソフトウェアを数学的に検証するブレイクスルー</h2>
-        <div class="summary"><p>DeepMindがAIを用いてSignalプロトコルの実コードを高度に数学的検証する新たなフレームワークを開発した。</p><p>人間が仕様を定義し、Gemini Carbon駆動のエージェントが600万行を超えるLean言語の証明を生成した。</p><p>数年かかる形式検証を4週間で完了し、実用暗号コードの安全性を自動検証で証明することに成功した。</p></div>
+        <p class="original">AlphaGenome 2: Deciphering how cells read DNA to better understand disease</p>
+        <h2 class="translated">DeepMind、細胞ごとのDNA解読精度を大幅に高めた「AlphaGenome 2」を発表</h2>
+        <div class="summary"><p>DeepMindがDNA変異が特定のヒト細胞型に与える影響を予測するAI「AlphaGenome 2」を発表した。</p><p>1億を超える細胞プロファイルで学習し、細胞の種類や状態を条件として個別の遺伝子発現の変化を高精度に予測する。</p><p>未学習の細胞データにも適応でき、疾患の原因となる遺伝子変異の特定や創薬研究の加速が期待されている。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>従来は設計段階にとどまっていた形式検証を、実際に動作するコンパイル済み実コードのレベルまで自動で拡張可能にした点。</p>
+          <p>組織全体の平均予測にとどまっていた前モデルから進化し、特定細胞タイプごとの影響や未知の細胞状態まで予測可能になった。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">Formal verification（形式検証）</span><span class="term-desc">プログラムにバグがないことをテストではなく数学的な論理証明によって厳密に保証する技術。</span></div><div class="term"><span class="term-name">Lean</span><span class="term-desc">数学的証明を記述し、コンピュータによって自動的にその正確性を検証できるプログラミング言語。</span></div></div>
-        <a class="link" href="https://deepmind.google/blog/introducing-alphaproof-code/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">条件付きモデル</span><span class="term-desc">特定の条件（細胞の種類や状態など）を入力として受け取り、その条件に合わせた予測を行うモデル構造。</span></div><div class="term"><span class="term-name">クロマチン構造（アクセシビリティ）</span><span class="term-desc">DNAとタンパク質の複合体の解きほぐされ具合を示し、遺伝子の働きやすさを左右する指標。</span></div></div>
+        <a class="link" href="https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n3" style="--n:3">
         <div class="entry-meta">
           <span class="rank" data-level="B">B</span>
-          <span class="source">OpenAI News</span>
+          <span class="source">CNET Japan</span>
         </div>
-        <p class="original">Introducing Businesses in ChatGPT</p>
-        <h2 class="translated">ChatGPTに新機能「Businesses in ChatGPT」が登場</h2>
-        <div class="summary"><p>OpenAIがChatGPT上で自社のビジネス情報を直接管理・活用できる新機能を公式発表した。</p><p>ユーザーに対して自社ビジネスがどのように表示されているかのインサイトを取得することが可能になる。</p><p>ChatGPT上で自社に関心を持った顧客を実際のアクションへと円滑に繋げるためのツールを提供する。</p></div>
+        <p class="original">NTT、ロボットが自ら「こう置くと崩れる」を先読み--荷積み成功率92.3％に</p>
+        <h2 class="translated">NTT、ロボットの荷崩れや落下を先読みして失敗を防ぐAI技術を開発</h2>
+        <div class="summary"><p>NTTはロボットが動作する前に荷崩れや物体の落下を高精度に予測し、失敗しにくい行動を選択するAI技術を開発した。</p><p>映像で未来を予測するワールドモデルに物理法則の計算を加えることで、衝突や物体の動きの再現性を大幅に向上させた。</p><p>小型ロボットによる棚積み実験では成功率が92.3％に向上し、今後は空港の手荷物処理や物流現場への展開を目指す。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>ChatGPT内で企業が自社情報を登録・管理し、ユーザーの関心を直接ビジネスアクションへと変換できるようにした点。</p>
+          <p>世界モデルによる映像予測に物理法則を解くアダプターを統合し、未学習の形状や重さを持つ物体でも高精度な予測を可能にした。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">ChatGPT</span><span class="term-desc">OpenAIが開発した対話型AIサービスで、テキストの生成や質問回答、多様な業務タスクを行う。</span></div></div>
-        <a class="link" href="https://openai.com/index/introducing-businesses-chatgpt" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">ワールドモデル（世界モデル）</span><span class="term-desc">現実世界の物理法則や環境の挙動を内部でモデル化し、自身の行動による未来の変化を予測するAI技術。</span></div><div class="term"><span class="term-name">物理制御アダプタ</span><span class="term-desc">運動方程式などの物理計算を映像生成AIに組み込み、自然な物体の動きや衝突を再現させる拡張機能。</span></div></div>
+        <a class="link" href="https://japan.cnet.com/article/35254749/" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n4" style="--n:4">
         <div class="entry-meta">
           <span class="rank" data-level="A">A</span>
           <span class="source">ITmedia AI+</span>
         </div>
-        <p class="original">「Claude」に共同編集の「Sheets」「Whiteboards」　外部アプリもClaude内で開いて作業可能に</p>
-        <h2 class="translated">「Claude」に共同編集の「Sheets」「Whiteboards」追加、外部アプリの直接操作も可能に</h2>
-        <div class="summary"><p>米AnthropicがClaude内で共同編集できるスプレッドシートとホワイトボード機能をβ版として追加した。</p><p>コネクタ機能が拡張され、NotionやConfluenceなどの外部アプリを画面内で開いて直接操作可能になった。</p><p>データ統合機能「Claude Data」の一般提供も開始され、有料プラン全ユーザー向けに順次展開される。</p></div>
+        <p class="original">Amazon、AWSのAPIを手元で再現する「AWS Emulator」を無償公開　コードはすべてAIエージェントが記述</p>
+        <h2 class="translated">Amazon、ローカルでAWS APIを再現する「AWS Emulator」を無償公開　全コードをAIエージェントが作成</h2>
+        <div class="summary"><p>AWSがクラウド環境を使わずにローカルPC上でAWS APIを再現できるツール「AWS Emulator」を無料公開した。</p><p>アカウント不要で動作し、全コードが人間によるレビューなしで自律型AIエージェントにより自動作成された。</p><p>数百のサービスインタフェースに対応し、ローカルでのアプリ開発やCI/CD環境での統合テストに活用できる。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>会話内でのツール利用にとどまらず、Claudeの画面内で共同編集ボードや外部アプリの全画面操作をリアルタイムで行えるようにした点。</p>
+          <p>AWS環境やアカウントを用意することなく、ローカル上で無償かつ高速にAWS APIを利用したテストや開発を行えるようになった。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">MCP（Model Context Protocol）</span><span class="term-desc">AIモデルが外部のデータソースやツール、アプリケーションと安全に連携するための標準規格。</span></div><div class="term"><span class="term-name">インタラクティブコネクタ</span><span class="term-desc">外部ツールの画面をAIのチャットUI内に直接読み込み、リアルタイムで操作・編集を行う機能。</span></div></div>
-        <a class="link" href="https://www.itmedia.co.jp/news/article/2611/11/2000003089/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">エミュレータ</span><span class="term-desc">特定のハードウェアやシステムの動作を別の環境上で擬似的に再現するソフトウェア。</span></div><div class="term"><span class="term-name">CI/CDパイプライン</span><span class="term-desc">ソフトウェアのビルド、テスト、デプロイなどの一連の工程を自動化し継続的に運用する仕組み。</span></div></div>
+        <a class="link" href="https://www.itmedia.co.jp/news/article/2611/12/2000003126/" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n5" style="--n:5">
         <div class="entry-meta">
           <span class="rank" data-level="C">C</span>
-          <span class="source">ITmedia AI+</span>
+          <span class="source">GIGAZINE</span>
         </div>
-        <p class="original">通信大手3社こぞって「フィジカルAI」に参入、なぜ？　ロボットが動くともうかるワケ</p>
-        <h2 class="translated">通信大手3社こぞって「フィジカルAI」に参入、なぜ？　ロボットが動くともうかるワケ</h2>
-        <div class="summary"><p>KDDIやソフトバンク、NTTの通信大手3社が、ロボットを動かす「フィジカルAI」領域へ相次ぎ参入している。</p><p>フィジカルAIは実世界の複雑な状況判断のため、大容量通信とエッジ基盤での高度な計算処理を必要とする。</p><p>通信会社はロボットの稼働による通信量の増加と計算インフラの提供により収益拡大を図ることができる。</p></div>
+        <p class="original">ゼロから独自開発した国産AIでトップクラスの日本語翻訳精度を実現する「PLaMo翻訳」を開発したPreferred Networksエンジニアに編集長が根掘り葉掘り聞いてみたよインタビュー</p>
+        <h2 class="translated">Preferred Networksの開発陣が語る、高精度な国産翻訳AI「PLaMo翻訳」の裏側</h2>
+        <div class="summary"><p>Preferred Networksのエンジニアが独自開発の生成AIモデル「PLaMo」を基盤とした翻訳サービスの開発秘話を語った。</p><p>ディープラーニング基盤から自社開発する強みを活かし、わずか数ヶ月の爆速開発でブラウザ拡張機能をリリースした。</p><p>最新モデルではLLMによる合成データを活用することで、マイナー言語を含む多言語対応の精度向上を実現している。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>通信大手の参入動向とともに、ロボットの動作に不可欠なデータ通信と計算資源の消費が通信事業者の新たな収益源になる仕組みを提示した点。</p>
+          <p>PLaMo 3への進化に伴いLLMを用いたデータ合成技術を組み込むことで、対応言語を一気に拡充し高品質な多言語翻訳を実現した。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">フィジカルAI</span><span class="term-desc">カメラやセンサーで現実世界を認識し、ロボットなどの物理的なハードウェアを自律制御するAI技術。</span></div><div class="term"><span class="term-name">MEC（Multi-access Edge Computing）</span><span class="term-desc">通信ネットワークのエッジ（端末の近く）に計算サーバーを配置し、超低遅延で処理を行う技術。</span></div></div>
-        <a class="link" href="https://www.itmedia.co.jp/business/articles/2611/11/news038.html" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">フルスクラッチ</span><span class="term-desc">既存の製品やライブラリを流用せず、最初からすべて自作でプログラムを組み上げること。</span></div><div class="term"><span class="term-name">LLM（大規模言語モデル）</span><span class="term-desc">膨大なテキストデータを取り込んで学習し、高度な文脈理解や文章生成を行う自然言語処理AI。</span></div></div>
+        <a class="link" href="https://gigazine.net/news/20261112-preferred-networks-plamo-translate-interview/" target="_blank" rel="noopener">原文を読む</a>
       </article>
     <footer class="foot">
       <p class="foot-label">過去の分</p>
-      <nav class="archive"><a href="log/2026-11-11.html">11/11</a><a href="log/2026-11-10.html">11/10</a><a href="log/2026-11-09.html">11/09</a><a href="log/2026-11-08.html">11/08</a><a href="log/2026-11-07.html">11/07</a><a href="log/2026-11-06.html">11/06</a><a href="log/2026-11-04.html">11/04</a><a href="log/2026-11-03.html">11/03</a><a href="log/2026-11-02.html">11/02</a><a href="log/2026-11-01.html">11/01</a><a href="log/2026-10-31.html">10/31</a><a href="log/2026-10-30.html">10/30</a><a href="log/2026-10-29.html">10/29</a><a href="log/2026-10-28.html">10/28</a></nav>
+      <nav class="archive"><a href="log/2026-11-12.html">11/12</a><a href="log/2026-11-11.html">11/11</a><a href="log/2026-11-10.html">11/10</a><a href="log/2026-11-09.html">11/09</a><a href="log/2026-11-08.html">11/08</a><a href="log/2026-11-07.html">11/07</a><a href="log/2026-11-06.html">11/06</a><a href="log/2026-11-04.html">11/04</a><a href="log/2026-11-03.html">11/03</a><a href="log/2026-11-02.html">11/02</a><a href="log/2026-11-01.html">11/01</a><a href="log/2026-10-31.html">10/31</a><a href="log/2026-10-30.html">10/30</a><a href="log/2026-10-29.html">10/29</a></nav>
     </footer>
   </main>
 </body>

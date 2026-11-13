@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Digest 2026-11-12</title>
+<title>AI Digest 2026-11-13</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="rail"><span class="rail-date">2026.11.12</span></div>
+  <div class="rail"><span class="rail-date">2026.11.13</span></div>
   <main>
     <header class="head">
       <p class="eyebrow">AI DIGEST</p>
-      <h1>11月12日<span class="wd">（木）</span></h1>
+      <h1>11月13日<span class="wd">（金）</span></h1>
       <p class="lede">今朝の5本。海外の一次情報と国内の動きを、日本語に直して並べています。</p>
       <p class="legend">
         <span class="rank" data-level="A">A</span>すぐ使える
@@ -26,81 +26,81 @@
       <article class="entry" id="n1" style="--n:1">
         <div class="entry-meta">
           <span class="rank" data-level="A">A</span>
-          <span class="source">Google AI Blog</span>
+          <span class="source">Hugging Face Blog</span>
         </div>
-        <p class="original">Gemini Decisions API: Fast, calibrated multimodal decisions</p>
-        <h2 class="translated">Google、高速・低コストでマルチモーダル判断を行う「Gemini Decisions API」を発表</h2>
-        <div class="summary"><p>GoogleがGemini API向けに高速・高精度な判断に特化した「Gemini Decisions API」の提供を開始した。</p><p>単一の順伝播処理により出力トークンの生成を行わず、最速150ミリ秒という低遅延かつ低コストでの評価を実現する。</p><p>テキストや画像、動画などのマルチモーダル入力に対応し、ツールの選択や安全性の自動検証などに活用できる。</p></div>
+        <p class="original">LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B</p>
+        <h2 class="translated">LLMON：LLMネイティブなマークアップ言語がGranite 4.1 3B/8Bに登場</h2>
+        <div class="summary"><p>LLM内部のコンテキスト構造を明確に伝えるため、専用タグを備えた構造化言語「LLMON」が開発された。</p><p>プロンプトインジェクション対策やデータと指示の確実な結合が可能になり、モデルの動作精度が大きく向上する。</p><p>Granite 4.1ベースのプレビューモデルやGitHub上のツールキットが公開され、即座に試行可能となった。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>従来のようにトークンを1つずつ生成せず、単一の順伝播で選択肢の確率を算出することで、大幅な高速化と低コスト化を達成した。</p>
+          <p>従来のJSONや一般的なチャットテンプレートと異なり、指示とデータを明確に分離・結合するLLM特化マークアップ「LLMON」に対応したGranite 4.1のプレビューモデルが公開された点。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">順伝播（Forward Pass）</span><span class="term-desc">ニューラルネットワークにおいて、入力データから出力に向かって一方向に計算を進める処理。</span></div><div class="term"><span class="term-name">キャリブレーション</span><span class="term-desc">モデルが出力する予測確率と、実際の正解率がどれだけ一致しているかを示す信頼性の度合い。</span></div></div>
-        <a class="link" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">LLMON</span><span class="term-desc">LLMがコンテキスト内の構造や指示とデータの関係性を正確に理解できるよう設計された専用マークアップ言語。</span></div><div class="term"><span class="term-name">プロンプトインジェクション</span><span class="term-desc">入力データ内に不正な指示を潜ませ、AIに意図しない動作をさせる攻撃手法。</span></div></div>
+        <a class="link" href="https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n2" style="--n:2">
         <div class="entry-meta">
-          <span class="rank" data-level="B">B</span>
+          <span class="rank" data-level="A">A</span>
           <span class="source">Google DeepMind Blog</span>
         </div>
-        <p class="original">AlphaGenome 2: Deciphering how cells read DNA to better understand disease</p>
-        <h2 class="translated">DeepMind、細胞ごとのDNA解読精度を大幅に高めた「AlphaGenome 2」を発表</h2>
-        <div class="summary"><p>DeepMindがDNA変異が特定のヒト細胞型に与える影響を予測するAI「AlphaGenome 2」を発表した。</p><p>1億を超える細胞プロファイルで学習し、細胞の種類や状態を条件として個別の遺伝子発現の変化を高精度に予測する。</p><p>未学習の細胞データにも適応でき、疾患の原因となる遺伝子変異の特定や創薬研究の加速が期待されている。</p></div>
+        <p class="original">Introducing Gemini 4 Hydrogen</p>
+        <h2 class="translated">Gemini 4 Hydrogenの発表</h2>
+        <div class="summary"><p>Google DeepMindが高速かつ高効率な最新モデル「Gemini 4 Hydrogen」を発表した。</p><p>思考レベルを4段階で調整可能で、コーディングや複数ステップのエージェント作業を素早くこなす。</p><p>APIや各種Googleサービスを通じて即日提供が開始され、最大100万トークンの出力に対応する。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>組織全体の平均予測にとどまっていた前モデルから進化し、特定細胞タイプごとの影響や未知の細胞状態まで予測可能になった。</p>
+          <p>従来のGemini 3.8 Flashより最大2.5倍高速化し、100万トークンの長文出力や4段階の思考レベル調整に対応した日常・エージェント向け新モデルが利用可能になった点。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">条件付きモデル</span><span class="term-desc">特定の条件（細胞の種類や状態など）を入力として受け取り、その条件に合わせた予測を行うモデル構造。</span></div><div class="term"><span class="term-name">クロマチン構造（アクセシビリティ）</span><span class="term-desc">DNAとタンパク質の複合体の解きほぐされ具合を示し、遺伝子の働きやすさを左右する指標。</span></div></div>
-        <a class="link" href="https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">Gemini 4 Hydrogen</span><span class="term-desc">高速性とコスト効率に優れ、エージェントや開発作業の高速実行に特化したAIモデル。</span></div><div class="term"><span class="term-name">エージェント型ワークフロー</span><span class="term-desc">AIが自ら計画を立て、ツール呼び出しや修正作業を複数ステップで自律的にこなす業務プロセス。</span></div></div>
+        <a class="link" href="https://deepmind.google/blog/introducing-gemini-4-hydrogen/" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n3" style="--n:3">
         <div class="entry-meta">
           <span class="rank" data-level="B">B</span>
-          <span class="source">CNET Japan</span>
+          <span class="source">OpenAI News</span>
         </div>
-        <p class="original">NTT、ロボットが自ら「こう置くと崩れる」を先読み--荷積み成功率92.3％に</p>
-        <h2 class="translated">NTT、ロボットの荷崩れや落下を先読みして失敗を防ぐAI技術を開発</h2>
-        <div class="summary"><p>NTTはロボットが動作する前に荷崩れや物体の落下を高精度に予測し、失敗しにくい行動を選択するAI技術を開発した。</p><p>映像で未来を予測するワールドモデルに物理法則の計算を加えることで、衝突や物体の動きの再現性を大幅に向上させた。</p><p>小型ロボットによる棚積み実験では成功率が92.3％に向上し、今後は空港の手荷物処理や物流現場への展開を目指す。</p></div>
+        <p class="original">Supporting research on AI and children’s safety</p>
+        <h2 class="translated">AIと子どもの安全性に関する研究への支援</h2>
+        <div class="summary"><p>OpenAIは、AI技術と子どもの安全性に関する研究に対して200万ドルの資金拠出を発表した。</p><p>若年層におけるAIリスクの測定や機会の創出に向け、共通ツールの開発や研究活動を支援する。</p><p>外部研究機関と連携し、AIモデルが子どもに与える影響や安全な利用環境の構築を目指していく。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>世界モデルによる映像予測に物理法則を解くアダプターを統合し、未学習の形状や重さを持つ物体でも高精度な予測を可能にした。</p>
+          <p>OpenAIが子どもの安全性とAIの影響に関する研究へ、新たに200万ドルの資金提供を行うことを表明した点。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">ワールドモデル（世界モデル）</span><span class="term-desc">現実世界の物理法則や環境の挙動を内部でモデル化し、自身の行動による未来の変化を予測するAI技術。</span></div><div class="term"><span class="term-name">物理制御アダプタ</span><span class="term-desc">運動方程式などの物理計算を映像生成AIに組み込み、自然な物体の動きや衝突を再現させる拡張機能。</span></div></div>
-        <a class="link" href="https://japan.cnet.com/article/35254749/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">OpenAI</span><span class="term-desc">ChatGPTなどを開発・提供しているアメリカの主要なAI開発企業。</span></div><div class="term"><span class="term-name">子どもの安全性</span><span class="term-desc">AIの普及に伴い、未成年者が不適切なコンテンツやリスクに晒されないよう保護するための取り組み。</span></div></div>
+        <a class="link" href="https://openai.com/index/children-first-declaration" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n4" style="--n:4">
         <div class="entry-meta">
-          <span class="rank" data-level="A">A</span>
+          <span class="rank" data-level="B">B</span>
           <span class="source">ITmedia AI+</span>
         </div>
-        <p class="original">Amazon、AWSのAPIを手元で再現する「AWS Emulator」を無償公開　コードはすべてAIエージェントが記述</p>
-        <h2 class="translated">Amazon、ローカルでAWS APIを再現する「AWS Emulator」を無償公開　全コードをAIエージェントが作成</h2>
-        <div class="summary"><p>AWSがクラウド環境を使わずにローカルPC上でAWS APIを再現できるツール「AWS Emulator」を無料公開した。</p><p>アカウント不要で動作し、全コードが人間によるレビューなしで自律型AIエージェントにより自動作成された。</p><p>数百のサービスインタフェースに対応し、ローカルでのアプリ開発やCI/CD環境での統合テストに活用できる。</p></div>
+        <p class="original">「好機が来た」――なぜ今Sakana AIは、イチからAIモデルを作るのか　“新たな一手”のねらいを聞いた</p>
+        <h2 class="translated">「好機が来た」――なぜ今Sakana AIは、イチからAIモデルを作るのか “新たな一手”のねらいを聞いた</h2>
+        <div class="summary"><p>Sakana AIが独自AIモデル「Sakana Sawara（仮称）」を事前学習から一貫開発すると発表した。</p><p>開発環境の変化や特化型モデルの有効性を背景に、自律型エージェントの基盤構築を目指している。</p><p>2024年12月に小型モデルの事前学習を開始し、2027年春頃のモデル重み公開を予定している。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>AWS環境やアカウントを用意することなく、ローカル上で無償かつ高速にAWS APIを利用したテストや開発を行えるようになった。</p>
+          <p>他社オープンモデルの事後学習を中心に展開してきたSakana AIが、ゼロからの事前学習による自社基盤モデルの独自開発へと方針を転換した点。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">エミュレータ</span><span class="term-desc">特定のハードウェアやシステムの動作を別の環境上で擬似的に再現するソフトウェア。</span></div><div class="term"><span class="term-name">CI/CDパイプライン</span><span class="term-desc">ソフトウェアのビルド、テスト、デプロイなどの一連の工程を自動化し継続的に運用する仕組み。</span></div></div>
-        <a class="link" href="https://www.itmedia.co.jp/news/article/2611/12/2000003126/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">事前学習 (Pre-training)</span><span class="term-desc">膨大なテキストデータを用いて、モデルに言語の構造や一般的な知識を一から学ばせる最初の学習フェーズ。</span></div><div class="term"><span class="term-name">オープンウェイトモデル</span><span class="term-desc">モデルの重み（学習済みのパラメータ）が公開されており、第三者が自社環境で自由に改変・運用できるAIモデル。</span></div></div>
+        <a class="link" href="https://www.itmedia.co.jp/aiplus/article/2611/13/2000003141/" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n5" style="--n:5">
         <div class="entry-meta">
-          <span class="rank" data-level="C">C</span>
-          <span class="source">GIGAZINE</span>
+          <span class="rank" data-level="B">B</span>
+          <span class="source">ITmedia AI+</span>
         </div>
-        <p class="original">ゼロから独自開発した国産AIでトップクラスの日本語翻訳精度を実現する「PLaMo翻訳」を開発したPreferred Networksエンジニアに編集長が根掘り葉掘り聞いてみたよインタビュー</p>
-        <h2 class="translated">Preferred Networksの開発陣が語る、高精度な国産翻訳AI「PLaMo翻訳」の裏側</h2>
-        <div class="summary"><p>Preferred Networksのエンジニアが独自開発の生成AIモデル「PLaMo」を基盤とした翻訳サービスの開発秘話を語った。</p><p>ディープラーニング基盤から自社開発する強みを活かし、わずか数ヶ月の爆速開発でブラウザ拡張機能をリリースした。</p><p>最新モデルではLLMによる合成データを活用することで、マイナー言語を含む多言語対応の精度向上を実現している。</p></div>
+        <p class="original">「AI処理、データ非保持が守られず」――Notionが委託先の問題指摘、漏えいの恐れ巡り</p>
+        <h2 class="translated">「AI処理、データ非保持が守られず」――Notionが委託先の問題指摘、漏えいの恐れ巡り</h2>
+        <div class="summary"><p>Notion LabsはNotion AIの委託先であるFireworks.aiでデータ保持が発生していたと明かした。</p><p>契約上はゼロデータ保持（ZDR）の予定だったが、委託先のエンドポイントで保存されていたという。</p><p>現在は対象サービスとの連携を停止しており、他委託事業者に対してもデータ管理の検証を進めている。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>PLaMo 3への進化に伴いLLMを用いたデータ合成技術を組み込むことで、対応言語を一気に拡充し高品質な多言語翻訳を実現した。</p>
+          <p>ゼロデータ保持（ZDR）を契約していたにもかかわらず、外部委託先の不備によってAIの対話ログが保存されていた事実が発覚した点。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">フルスクラッチ</span><span class="term-desc">既存の製品やライブラリを流用せず、最初からすべて自作でプログラムを組み上げること。</span></div><div class="term"><span class="term-name">LLM（大規模言語モデル）</span><span class="term-desc">膨大なテキストデータを取り込んで学習し、高度な文脈理解や文章生成を行う自然言語処理AI。</span></div></div>
-        <a class="link" href="https://gigazine.net/news/20261112-preferred-networks-plamo-translate-interview/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">ZDR (ゼロデータ保持)</span><span class="term-desc">AIへの入力・出力データをプロバイダ側で保管せず、処理完了後に即座に消去するプライバシー保護の取り決め。</span></div><div class="term"><span class="term-name">エンドポイント</span><span class="term-desc">ネットワーク経由でデータ処理やAI推論のリクエストを受け付けるアクセスポイントのこと。</span></div></div>
+        <a class="link" href="https://www.itmedia.co.jp/aiplus/article/2611/13/2000003172/" target="_blank" rel="noopener">原文を読む</a>
       </article>
     <footer class="foot">
       <p class="foot-label">過去の分</p>
-      <nav class="archive"><a href="log/2026-11-12.html">11/12</a><a href="log/2026-11-11.html">11/11</a><a href="log/2026-11-10.html">11/10</a><a href="log/2026-11-09.html">11/09</a><a href="log/2026-11-08.html">11/08</a><a href="log/2026-11-07.html">11/07</a><a href="log/2026-11-06.html">11/06</a><a href="log/2026-11-04.html">11/04</a><a href="log/2026-11-03.html">11/03</a><a href="log/2026-11-02.html">11/02</a><a href="log/2026-11-01.html">11/01</a><a href="log/2026-10-31.html">10/31</a><a href="log/2026-10-30.html">10/30</a><a href="log/2026-10-29.html">10/29</a></nav>
+      <nav class="archive"><a href="log/2026-11-13.html">11/13</a><a href="log/2026-11-12.html">11/12</a><a href="log/2026-11-11.html">11/11</a><a href="log/2026-11-10.html">11/10</a><a href="log/2026-11-09.html">11/09</a><a href="log/2026-11-08.html">11/08</a><a href="log/2026-11-07.html">11/07</a><a href="log/2026-11-06.html">11/06</a><a href="log/2026-11-04.html">11/04</a><a href="log/2026-11-03.html">11/03</a><a href="log/2026-11-02.html">11/02</a><a href="log/2026-11-01.html">11/01</a><a href="log/2026-10-31.html">10/31</a><a href="log/2026-10-30.html">10/30</a></nav>
     </footer>
   </main>
 </body>

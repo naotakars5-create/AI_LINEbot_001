@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Digest 2026-11-15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="rail"><span class="rail-date">2026.11.15</span></div>
+  <main>
+    <header class="head">
+      <p class="eyebrow">AI DIGEST</p>
+      <h1>11月15日<span class="wd">（日）</span></h1>
+      <p class="lede">今朝の5本。海外の一次情報と国内の動きを、日本語に直して並べています。</p>
+      <p class="legend">
+        <span class="rank" data-level="A">A</span>すぐ使える
+        <span class="rank" data-level="B">B</span>知っておく
+        <span class="rank" data-level="C">C</span>参考
+      </p>
+    </header>
+    
+      <article class="entry" id="n1" style="--n:1">
+        <div class="entry-meta">
+          <span class="rank" data-level="C">C</span>
+          <span class="source">Hugging Face Blog</span>
+        </div>
+        <p class="original">Build a Robot Pick-and-Place Simulation with SimReady Assets</p>
+        <h2 class="translated">SimReadyアセットを活用したロボットのピック＆プレースシミュレーションの構築</h2>
+        <div class="summary"><p>Isaac Sim上でSimReadyアセットを用い、ロボットアームとグリッパーの動作シミュレーションを構築する手順を解説。</p><p>SimReady規格はOpenUSDアセットに質量や衝突判定、関節ドライブ設定などを付与しシミュレーション互換性を確保する。</p><p>LLMエージェントを利用してタスクコードを生成し、ロボットの初期検証からピック＆プレース実行までを行う。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>Hugging Face上のSimReady Centralで提供される検証済みアセットとLLMを用いて、Isaac Sim上でロボットのピック＆プレース動作を実装する実践手順を示した点。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">SimReady</span><span class="term-desc">物理シミュレーションに必要な衝突属性や質量、関節設定などが事前定義されたOpenUSDアセットの規格。</span></div><div class="term"><span class="term-name">Isaac Sim</span><span class="term-desc">NVIDIAが開発・提供する、ロボティクス開発や仮想環境での動作検証を行うための物理シミュレーション環境。</span></div></div>
+        <a class="link" href="https://huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+      <article class="entry" id="n2" style="--n:2">
+        <div class="entry-meta">
+          <span class="rank" data-level="B">B</span>
+          <span class="source">Hugging Face Blog</span>
+        </div>
+        <p class="original">XYBench: Helping with the problem behind the question</p>
+        <h2 class="translated">XYBench：質問の背景にある真の問題への対処能力を評価する新しいベンチマーク</h2>
+        <div class="summary"><p>ユーザの誤った前提に基づく質問（XY問題）に対し、AIが真の目的を理解して誘導できるかを測るXYBenchを公開。</p><p>8,000件以上のプログラミングや日常の課題から構成され、モデルが誤解を見抜いて正しい解決策を強調できるか評価。</p><p>既存の主要LLMを評価した結果、多くのモデルは真の目的よりも質問された誤った手法の回答を優先する傾向が判明。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>ユーザーの誤った前提に基づく質問（XY問題）を検知し、裏にある真の課題に即した解決策を提示できるかを評価する評価データセット「XYBench」を新しく発表した点。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">XY問題</span><span class="term-desc">本当の課題Xを解決するために不適切な手段Yを選択し、手段Yについて質問してしまう問題解決上の落とし穴。</span></div><div class="term"><span class="term-name">ベンチマーク</span><span class="term-desc">AIモデルの特定機能や解答性能を客観的に測定・比較するために用いられる標準的な評価テスト集。</span></div></div>
+        <a class="link" href="https://huggingface.co/blog/allenai/xybench" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+      <article class="entry" id="n3" style="--n:3">
+        <div class="entry-meta">
+          <span class="rank" data-level="B">B</span>
+          <span class="source">GIGAZINE</span>
+        </div>
+        <p class="original">AIは答えを出せても「聞くべきこと」を見落とすことが税務の仕事を再現したテストで判明</p>
+        <h2 class="translated">AIは計算できても「確認すべき問い」を見落とすことが実務的な税務テストで判明</h2>
+        <div class="summary"><p>Surge AIが実際の税務実務を再現した評価テスト「DAYJOB: Tax」の結果を公開し課題を分析。</p><p>テストでは計算だけでなく、提示された不完全な資料から追加で確かめるべき問題を見抜く能力が求められる。</p><p>最多合格率のモデルでも10.8%にとどまり、AIが提示資料の矛盾や追加の確認事項を捉える難しさが示された。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>単なる税法知識や計算精度だけでなく、不完全な資料から「追加で確認すべき問題」を見抜く能力を評価する新しい税務ベンチマークの検証結果を示した点。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">DAYJOB: Tax</span><span class="term-desc">実際の確定申告や相続などの実務課題を模し、AIエージェントの現場対応能力を測るための評価テスト。</span></div><div class="term"><span class="term-name">Surge AI</span><span class="term-desc">AIモデルの訓練データ作成や人間によるデータ評価、専門的なベンチマーク開発を手がけるAI基盤企業。</span></div></div>
+        <a class="link" href="https://gigazine.net/news/20261115-dayjob-tax/" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+      <article class="entry" id="n4" style="--n:4">
+        <div class="entry-meta">
+          <span class="rank" data-level="C">C</span>
+          <span class="source">GIGAZINE</span>
+        </div>
+        <p class="original">AIが便利になればなるほど深刻になる「自動化の皮肉」に人間はどう対処すべきか</p>
+        <h2 class="translated">AIの自動化が進むことで生じる「自動化の皮肉」とSREのスキル維持への対処法</h2>
+        <div class="summary"><p>AIが障害対応を自動化することで、人間が複雑な問題に対処する能力を失う「自動化の皮肉」が指摘されている。</p><p>定常業務の自動化により実践機会が減り、若手エンジニアが最初からスキルを習得できない懸念も存在する。</p><p>スキル維持のためにあえて人間の作業を残すなど、AIに依存しすぎない人間中心の意図的な設計が提案されている。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>インフラ運用（SRE）におけるAI活用が進むことで起こるエンジニアのスキル低下（デスキリング）の懸念に対し、人間中心の運用設計と対策アプローチを提言した点。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">SRE (Site Reliability Engineering)</span><span class="term-desc">システムの信頼性や運用効率を高めるため、ソフトウェアエンジニアリングの手法を用いてインフラを管理するアプローチ。</span></div><div class="term"><span class="term-name">自動化の皮肉</span><span class="term-desc">プロセスの自動化が進むほど現場の人間の介入機会が減り、稀に起きる複雑な異常への対応能力が低下するという現象。</span></div></div>
+        <a class="link" href="https://gigazine.net/news/20261115-ai-isnt-replacing-sres-its-deskilling/" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+      <article class="entry" id="n5" style="--n:5">
+        <div class="entry-meta">
+          <span class="rank" data-level="C">C</span>
+          <span class="source">Zenn AI</span>
+        </div>
+        <p class="original">GPTBotは0回、OAI-SearchBotは4,847回。AIクローラーを30日間観測して分かったこと</p>
+        <h2 class="translated">30日間のアクセスログ観測でわかったAIクローラーの巡回傾向とアクセス分析手法</h2>
+        <div class="summary"><p>Webサイト上で30日間のアクセスログを観測し、検索用と学習用でAIクローラーの動作差があることを確認。</p><p>リクエスト数の多さと到達したURLの種類数は一致せず、用途に応じたクローラー別のアクセス分析が重要となる。</p><p>自作のAI利用アクセスを適切に除外する設計や、検証用のオープンデータ集計ロジックと注意点を詳しく解説。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>AI検索用とモデル学習用のクローラーの挙動の違いを実アクセスデータで確認し、管理者自身のAI利用アクセスを除外してログを正しく計測する設計ノウハウを整理した点。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">OAI-SearchBot</span><span class="term-desc">OpenAIがChatGPTの検索機能やWebインデックス作成のためにページを巡回・収集するWebクローラー。</span></div><div class="term"><span class="term-name">GPTBot</span><span class="term-desc">OpenAIがAIモデルのデータ学習目的でWeb上の公開コンテンツを収集するために使用する専用クローラー。</span></div></div>
+        <a class="link" href="https://zenn.dev/rimonoa/articles/8974167fe581c2" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+    <footer class="foot">
+      <p class="foot-label">過去の分</p>
+      <nav class="archive"><a href="../log/2026-11-15.html">11/15</a><a href="../log/2026-11-14.html">11/14</a><a href="../log/2026-11-13.html">11/13</a><a href="../log/2026-11-12.html">11/12</a><a href="../log/2026-11-11.html">11/11</a><a href="../log/2026-11-10.html">11/10</a><a href="../log/2026-11-09.html">11/09</a><a href="../log/2026-11-08.html">11/08</a><a href="../log/2026-11-07.html">11/07</a><a href="../log/2026-11-06.html">11/06</a><a href="../log/2026-11-04.html">11/04</a><a href="../log/2026-11-03.html">11/03</a><a href="../log/2026-11-02.html">11/02</a><a href="../log/2026-11-01.html">11/01</a></nav>
+    </footer>
+  </main>
+</body>
+</html>

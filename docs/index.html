@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Digest 2026-11-26</title>
+<title>AI Digest 2026-11-27</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="rail"><span class="rail-date">2026.11.26</span></div>
+  <div class="rail"><span class="rail-date">2026.11.27</span></div>
   <main>
     <header class="head">
       <p class="eyebrow">AI DIGEST</p>
-      <h1>11月26日<span class="wd">（木）</span></h1>
+      <h1>11月27日<span class="wd">（金）</span></h1>
       <p class="lede">今朝の5本。海外の一次情報と国内の動きを、日本語に直して並べています。</p>
       <p class="legend">
         <span class="rank" data-level="A">A</span>すぐ使える
@@ -25,82 +25,82 @@
     
       <article class="entry" id="n1" style="--n:1">
         <div class="entry-meta">
-          <span class="rank" data-level="B">B</span>
+          <span class="rank" data-level="A">A</span>
           <span class="source">Hugging Face Blog</span>
         </div>
-        <p class="original">Where scientists draw the line on AI agents</p>
-        <h2 class="translated">科学者がAIエージェントに引く「境界線」とは</h2>
-        <div class="summary"><p>科学研究へのAI導入において文献レビューやデータ分析を委ねる際も研究者自身の責任は免れません。</p><p>17名の研究者への取材から検証、プライバシー、客観性、説明責任、透明性が重要な信頼要素と判明しました。</p><p>今後は研究プロセスの妥当性や安全基準を科学者と共に評価する参加型ベンチマークの構築が求められます。</p></div>
+        <p class="original">Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference</p>
+        <h2 class="translated">Nemotron 3.5 Parseの展開：オープンデータ、微調整、高速推論</h2>
+        <div class="summary"><p>NVIDIAが文書解析モデルNemotron 3.5 Parseの学習データやファインチューニング手法を公開した。</p><p>RLVR（強化学習）を適用することでモデルのループ現象やトークン上限到達を大幅に削減した。</p><p>DFlash2投機的デコーディング等の採用により推論速度が大幅に向上し処理能力が向上した。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>単なる回答の正しさだけでなく、研究倫理や手法の透明性までを含めてAIの信頼性を評価するフレームワークを提言した点。</p>
+          <p>学習に使った3つの合成データセットをオープンソース公開し、投機的デコーディング「DFlash2」により推論速度を大幅向上させた点。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">AIエージェント</span><span class="term-desc">自律的にツールを選択・操作し、一連の研究タスクを実行する人工知能システム。</span></div><div class="term"><span class="term-name">参加型ベンチマーク</span><span class="term-desc">分野の専門家である科学者自身が評価基準の策定に関わり、システムの実用性や安全性を測定するテスト枠組み。</span></div></div>
-        <a class="link" href="https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">RLVR</span><span class="term-desc">検証可能な報酬を用いて一貫性や正確性を高める強化学習手法。</span></div><div class="term"><span class="term-name">投機的デコーディング</span><span class="term-desc">小さなモデルが事前にトークンを予測し本体モデルで検証して生成を速める技術。</span></div><div class="term"><span class="term-name">SFT</span><span class="term-desc">高品質な正解データを与えてモデルの標準的な動作を学習させる教師あり微調整。</span></div></div>
+        <a class="link" href="https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n2" style="--n:2">
         <div class="entry-meta">
           <span class="rank" data-level="C">C</span>
           <span class="source">Hugging Face Blog</span>
         </div>
-        <p class="original">Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton</p>
-        <h2 class="translated">Microduckの障害物回避：Isaac LabとNewtonを用いたSim2Realワークフロー</h2>
-        <div class="summary"><p>小型ロボットMicroduckの歩行制御を維持したままToFセンサーに基づく障害物回避機能を訓練します。</p><p>Isaac Lab上の並列シミュレーションとNewtonの物理・深度計測モデルを使い制御器を最適化します。</p><p>訓練済みのモデルは実機のMicroduckへ展開しゲームパッド操作と連携した回避動作を実現します。</p></div>
+        <p class="original">Swarms, Flocks, Gangs: How to build, train, and evaluate multi-agent systems</p>
+        <h2 class="translated">スワーム・フロック・ギャング：マルチエージェントシステムの構築・訓練・評価法</h2>
+        <div class="summary"><p>複数エージェントを連携させるマルチエージェントシステムの有効性を検証する連載記事の第1弾。</p><p>単に試行回数や計算量を増やしただけではないかというコスト対効果の疑問を提起している。</p><p>強化学習の理論に基づきエージェント間の通信や協力体制を学習させる手法の基礎を解説する。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>既存の歩行ポリシーの重みを固定したまま、ToFセンサー入力を介して回避行動のみを調整する制御層を追加・実機適用した点。</p>
+          <p>マルチエージェント構成が単なる計算量の増加ではなく真に協調効果を生んでいるかを検証する評価枠組みと連載チュートリアルの提供。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">Sim2Real</span><span class="term-desc">シミュレーション環境で学習させた制御モデルを、物理的な実物ロボットに移行して動作させる手法。</span></div><div class="term"><span class="term-name">ToFセンサー</span><span class="term-desc">照射した光が対象物に反射して戻る時間を計測することで距離を測定する高精度な深度センサー。</span></div></div>
-        <a class="link" href="https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">MARL</span><span class="term-desc">複数のAIエージェントが相互に影響し合う環境で協調や競争を学習させる強化学習。</span></div><div class="term"><span class="term-name">CTDE</span><span class="term-desc">訓練時は全体情報を利用し、実行時は各エージェントの個別情報のみで動作させる設計手法。</span></div></div>
+        <a class="link" href="https://huggingface.co/blog/training-swarms" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n3" style="--n:3">
         <div class="entry-meta">
           <span class="rank" data-level="B">B</span>
-          <span class="source">GIGAZINE</span>
+          <span class="source">ITmedia AI+</span>
         </div>
-        <p class="original">GoogleのAIが人間の介入なしに6本の数学論文を生成、素因数分解など数十年停滞していた分野に光</p>
-        <h2 class="translated">GoogleのAIが人間の介入なしに6本の数学論文を生成、素因数分解など数十年停滞していた分野に光</h2>
-        <div class="summary"><p>Google ResearchはAIエージェント「Cogentic」を用いて人間非介入で6本の数学論文を自動生成しました。</p><p>数体篩法の計算量証明や離散対数問題、ゲーム理論の近似ナッシュ均衡など多岐にわたる成果を含みます。</p><p>複数のエージェントが証明作成、検証、執筆などを分担し自律的な研究プロセスを達成しました。</p></div>
+        <p class="original">電通が「Geminiを使いこなすFDE」ら3000人育成プログラムを開始　その内容とは？</p>
+        <h2 class="translated">電通が「Geminiを使いこなすFDE」ら3000人育成プログラムを開始　その内容とは？</h2>
+        <div class="summary"><p>電通グループが「Gemini Enterprise」を活用できる人材約3000人の育成を開始した。</p><p>現場導入を支援するFDEおよびFDMという専門人材を養成しクライアント支援を強化する。</p><p>生成AIの単なるツール利用にとどまらず事業変革やマーケティング課題の解決を目指す。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>初期プロンプト以降の人間による介入を一切行わずに、マルチエージェントAIが研究立案から論文執筆までを完全自動で完結させた点。</p>
+          <p>グループ全体で約3,000人規模を対象にGemini Enterprise活用に特化した専門人材（FDE/FDM）育成を開始した点。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">マルチエージェントシステム</span><span class="term-desc">複数のAIモデルが役割（証明作成、敵対的検証、文献調査など）を分担し、相互に協力して複雑な課題を解く仕組み。</span></div><div class="term"><span class="term-name">ナッシュ均衡</span><span class="term-desc">ゲーム理論において、全てのプレイヤーが互いに最適な戦略を選択しており、誰も単独で戦略を変えるメリットがない状態。</span></div></div>
-        <a class="link" href="https://gigazine.net/news/20261126-cogentic-6-research-papers/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">FDE</span><span class="term-desc">顧客の現場に深く入り込んでシステム開発やAI実装を直接推進する技術者。</span></div><div class="term"><span class="term-name">Gemini Enterprise</span><span class="term-desc">企業向けに高度なセキュリティと機能を提供するGoogleの生成AIツール。</span></div></div>
+        <a class="link" href="https://atmarkit.itmedia.co.jp/ait/articles/2611/27/news038.html" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n4" style="--n:4">
         <div class="entry-meta">
           <span class="rank" data-level="B">B</span>
-          <span class="source">ITmedia AI+</span>
+          <span class="source">Zenn AI</span>
         </div>
-        <p class="original">AnthropicのアモデイCEO、「人間の自由意志をAIに明け渡す」考えを否定　AI企業間で議論</p>
-        <h2 class="translated">AnthropicのアモデイCEO、「人間の自由意志をAIに明け渡す」考えを否定　AI企業間で議論</h2>
-        <div class="summary"><p>Anthropicのダリオ・アモデイCEOは超知能AIへ人間の決定権を委ねるべきだとする報道に反論しました。</p><p>OpenAI幹部らもAIへの主導権喪失を警戒しており業界内でAIと人間の統治関係を巡る議論が激化しています。</p><p>アモデイ氏は個別タスクの自動化と社会統治の譲渡を明確に区別し民主的管理の重要性を強調しました。</p></div>
+        <p class="original">キオクシアとNVIDIAはSSDでGPUメモリをどう広げる？ 1.1 PBの内訳</p>
+        <h2 class="translated">キオクシアとNVIDIAはSSDでGPUメモリをどう広げる？ 1.1 PBの内訳</h2>
+        <div class="summary"><p>キオクシアとNVIDIAがGPUから超大容量SSDへ直接アクセスする技術実証を行った。</p><p>18台のサーバーに計144台のSSDを接続し約1.1PBの膨大なデータ領域を構築した。</p><p>HBMに入り切らないデータをSSDから効率的に読み出しGPUのメモリ制限を補う。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>将来的な超知能AIの出現を見据え、社会の意思決定権を人間に留めるべきかAIに委ねるべきかについて業界トップ同士の議論が顕在化した点。</p>
+          <p>NVIDIAのGB200システムとキオクシアのSSDを組み合わせ、GPUからアクセス可能な外部ストレージを1.1PB規模まで拡張・実証した点。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">超知能（Superintelligence）</span><span class="term-desc">あらゆる分野において人間の能力をはるかに超越する仮想上の高度な人工知能。</span></div><div class="term"><span class="term-name">再帰的自己改善（RSI）</span><span class="term-desc">AIが自らのコードや構造を自律的に改良し、人間の制御を超えた速度で能力を高めていくプロセス。</span></div></div>
-        <a class="link" href="https://www.itmedia.co.jp/news/article/2611/26/2000003473/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">HBM</span><span class="term-desc">GPUのすぐ近くに配置される非常に高速かつ高帯域な専用メモリ。</span></div><div class="term"><span class="term-name">NVMe SSD</span><span class="term-desc">PCIeバスを介してデータを高速転送できるフラッシュストレージ。</span></div></div>
+        <a class="link" href="https://zenn.dev/student_blog/articles/kioxia-nvidia-ssd-gpu-memory-1pb" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n5" style="--n:5">
         <div class="entry-meta">
           <span class="rank" data-level="C">C</span>
-          <span class="source">GIGAZINE</span>
+          <span class="source">ITmedia AI+</span>
         </div>
-        <p class="original">AnthropicがClaudeを使って自社APIをPythonからRustに移植しCPU使用量を約70％削減した方法を公開</p>
-        <h2 class="translated">AnthropicがClaudeを使って自社APIをPythonからRustに移植しCPU使用量を約70％削減した方法を公開</h2>
-        <div class="summary"><p>Anthropicは自社APIのPythonからRustへの大規模移植において自社AIのClaudeを活用しました。</p><p>本番環境との差分比較や自動修正ループを構築し、AI生成コードの検証難易度という課題を克服しました。</p><p>この移植によりCPU使用量を約70％削減し、メモリ使用量の削減や初期応答時間の大幅短縮を達成しました。</p></div>
+        <p class="original">AIエージェントの行動が「適切か暴走か」をどう見極める？　Googleが明かすテストの盲点</p>
+        <h2 class="translated">AIエージェントの行動が「適切か暴走か」をどう見極める？ Googleが明かすテストの盲点</h2>
+        <div class="summary"><p>GoogleがAIエージェントの行動や安全性を適切に評価するための検証ポイントを解説した。</p><p>最終出力結果のチェックだけでは途中の不適切な処理や確認不足を見逃す危険性を指摘する。</p><p>実際に動作させるテストと計画のみを出力させるテストを組み合わせる重要性を提示した。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>AIモデルの出力揺らぎを回避するため、単一のモデル実行結果を新旧API両方で検証・比較する本番差分テスト自動化プロセスを構築した点。</p>
+          <p>AIエージェントの評価において最終出力だけでなく実行プロセスやツール呼び出し履歴まで検証すべきという評価設計の落とし穴を明らかにした点。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">Messages API</span><span class="term-desc">開発者が外部プログラムからClaudeモデルに対してデータ入出力を行うための主要な通信インターフェース。</span></div><div class="term"><span class="term-name">トラフィック比較検証</span><span class="term-desc">実際にユーザーから届く通信リクエストを複製し、新旧システムへ並列に送ることで実稼働時の動作の完全同一性を確認する手法。</span></div></div>
-        <a class="link" href="https://gigazine.net/news/20261126-anthropic-claude-api-rust/" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">LLM-as-a-Judge</span><span class="term-desc">大型言語モデルを評価者として使い他のモデルの回答品質を自動判定する手法。</span></div><div class="term"><span class="term-name">AIエージェント</span><span class="term-desc">自律的に状況を判断しツール選択やタスク実行を繰り返して目標を達成するシステム。</span></div></div>
+        <a class="link" href="https://atmarkit.itmedia.co.jp/ait/articles/2611/27/news035.html" target="_blank" rel="noopener">原文を読む</a>
       </article>
     <footer class="foot">
       <p class="foot-label">過去の分</p>
-      <nav class="archive"><a href="log/2026-11-26.html">11/26</a><a href="log/2026-11-25.html">11/25</a><a href="log/2026-11-24.html">11/24</a><a href="log/2026-11-23.html">11/23</a><a href="log/2026-11-22.html">11/22</a><a href="log/2026-11-21.html">11/21</a><a href="log/2026-11-20.html">11/20</a><a href="log/2026-11-19.html">11/19</a><a href="log/2026-11-18.html">11/18</a><a href="log/2026-11-17.html">11/17</a><a href="log/2026-11-16.html">11/16</a><a href="log/2026-11-15.html">11/15</a><a href="log/2026-11-14.html">11/14</a><a href="log/2026-11-13.html">11/13</a></nav>
+      <nav class="archive"><a href="log/2026-11-27.html">11/27</a><a href="log/2026-11-26.html">11/26</a><a href="log/2026-11-25.html">11/25</a><a href="log/2026-11-24.html">11/24</a><a href="log/2026-11-23.html">11/23</a><a href="log/2026-11-22.html">11/22</a><a href="log/2026-11-21.html">11/21</a><a href="log/2026-11-20.html">11/20</a><a href="log/2026-11-19.html">11/19</a><a href="log/2026-11-18.html">11/18</a><a href="log/2026-11-17.html">11/17</a><a href="log/2026-11-16.html">11/16</a><a href="log/2026-11-15.html">11/15</a><a href="log/2026-11-14.html">11/14</a></nav>
     </footer>
   </main>
 </body>

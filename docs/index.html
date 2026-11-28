@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Digest 2026-11-27</title>
+<title>AI Digest 2026-11-28</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="rail"><span class="rail-date">2026.11.27</span></div>
+  <div class="rail"><span class="rail-date">2026.11.28</span></div>
   <main>
     <header class="head">
       <p class="eyebrow">AI DIGEST</p>
-      <h1>11月27日<span class="wd">（金）</span></h1>
+      <h1>11月28日<span class="wd">（土）</span></h1>
       <p class="lede">今朝の5本。海外の一次情報と国内の動きを、日本語に直して並べています。</p>
       <p class="legend">
         <span class="rank" data-level="A">A</span>すぐ使える
@@ -25,82 +25,82 @@
     
       <article class="entry" id="n1" style="--n:1">
         <div class="entry-meta">
-          <span class="rank" data-level="A">A</span>
-          <span class="source">Hugging Face Blog</span>
-        </div>
-        <p class="original">Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference</p>
-        <h2 class="translated">Nemotron 3.5 Parseの展開：オープンデータ、微調整、高速推論</h2>
-        <div class="summary"><p>NVIDIAが文書解析モデルNemotron 3.5 Parseの学習データやファインチューニング手法を公開した。</p><p>RLVR（強化学習）を適用することでモデルのループ現象やトークン上限到達を大幅に削減した。</p><p>DFlash2投機的デコーディング等の採用により推論速度が大幅に向上し処理能力が向上した。</p></div>
-        <div class="diff">
-          <span class="diff-label">何が変わったか</span>
-          <p>学習に使った3つの合成データセットをオープンソース公開し、投機的デコーディング「DFlash2」により推論速度を大幅向上させた点。</p>
-        </div>
-        <div class="terms"><div class="term"><span class="term-name">RLVR</span><span class="term-desc">検証可能な報酬を用いて一貫性や正確性を高める強化学習手法。</span></div><div class="term"><span class="term-name">投機的デコーディング</span><span class="term-desc">小さなモデルが事前にトークンを予測し本体モデルで検証して生成を速める技術。</span></div><div class="term"><span class="term-name">SFT</span><span class="term-desc">高品質な正解データを与えてモデルの標準的な動作を学習させる教師あり微調整。</span></div></div>
-        <a class="link" href="https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin" target="_blank" rel="noopener">原文を読む</a>
-      </article>
-      <article class="entry" id="n2" style="--n:2">
-        <div class="entry-meta">
           <span class="rank" data-level="C">C</span>
           <span class="source">Hugging Face Blog</span>
         </div>
-        <p class="original">Swarms, Flocks, Gangs: How to build, train, and evaluate multi-agent systems</p>
-        <h2 class="translated">スワーム・フロック・ギャング：マルチエージェントシステムの構築・訓練・評価法</h2>
-        <div class="summary"><p>複数エージェントを連携させるマルチエージェントシステムの有効性を検証する連載記事の第1弾。</p><p>単に試行回数や計算量を増やしただけではないかというコスト対効果の疑問を提起している。</p><p>強化学習の理論に基づきエージェント間の通信や協力体制を学習させる手法の基礎を解説する。</p></div>
+        <p class="original">Taking Trainium3 to the Track: Generating Videos with LTX-2.5</p>
+        <h2 class="translated">Trainium3での実践：LTX-2.5を用いた映像および音声の生成</h2>
+        <div class="summary"><p>AWSの最新チップTrainium3で映像生成モデルLTX-2.5の動作検証を行った。</p><p>10秒の音声付き高解像度動画を22〜23秒で生成しクラウドAPIと同等以上の速度を達成。</p><p>テンソル並列やシーケンス並列を活用しモデルパイプラインの最適化手法を共有した。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>マルチエージェント構成が単なる計算量の増加ではなく真に協調効果を生んでいるかを検証する評価枠組みと連載チュートリアルの提供。</p>
+          <p>Trainium3上で巨大な映像・音声統合生成モデルを効率的に動かすための並列化手法とパイプライン実装が実証された。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">MARL</span><span class="term-desc">複数のAIエージェントが相互に影響し合う環境で協調や競争を学習させる強化学習。</span></div><div class="term"><span class="term-name">CTDE</span><span class="term-desc">訓練時は全体情報を利用し、実行時は各エージェントの個別情報のみで動作させる設計手法。</span></div></div>
-        <a class="link" href="https://huggingface.co/blog/training-swarms" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">Trainium3</span><span class="term-desc">AWSが開発した機械学習のトレーニングおよび推論向け専用アクセラレータ。</span></div><div class="term"><span class="term-name">Pose to Pose</span><span class="term-desc">アニメーション制作手法の一つで、主要なキーフレームを先に作成してから間を埋める方法。</span></div><div class="term"><span class="term-name">テンソル並列</span><span class="term-desc">1つのニューラルネットワーク層の計算を複数のアクセラレータに分割して並列処理する技術。</span></div></div>
+        <a class="link" href="https://huggingface.co/blog/video-trainium3" target="_blank" rel="noopener">原文を読む</a>
+      </article>
+      <article class="entry" id="n2" style="--n:2">
+        <div class="entry-meta">
+          <span class="rank" data-level="B">B</span>
+          <span class="source">Googleニュース（生成AI）</span>
+        </div>
+        <p class="original">Sakana AIが防衛特化子会社「Sakana Defense」設立、自衛隊指揮統制AIなど体制強化 - ビジネス+IT</p>
+        <h2 class="translated">Sakana AIが防衛特化子会社「Sakana Defense」を設立、自衛隊の指揮統制AI等を強化</h2>
+        <div class="summary"><p>Sakana AIが防衛分野に特化した子会社Sakana Defenseの設立を発表した。</p><p>自衛隊における指揮統制AIなどの開発に向け、防衛分野のAI開発体制の強化を図る。</p><p>安全保障領域での技術活用を徹底し、高度な意思決定支援システムの実用化を目指す。</p></div>
+        <div class="diff">
+          <span class="diff-label">何が変わったか</span>
+          <p>Sakana AIが一般向けAI開発から発展し、日本の防衛分野に特化した専任子会社を新たに立ち上げた。</p>
+        </div>
+        <div class="terms"><div class="term"><span class="term-name">Sakana AI</span><span class="term-desc">日本を拠点とするAIスタートアップで、複数モデルの統合技術などで知られる。</span></div><div class="term"><span class="term-name">指揮統制（C2）</span><span class="term-desc">作戦行動において状況を把握し、意志決定と指示伝達を行う一連の統制システム。</span></div></div>
+        <a class="link" href="https://news.google.com/rss/articles/CBMiT0FVX3lxTE1mWWlNU2JHN3l6dHg1bHQ3WWhNZUNLekV5ZHdIWWJHYjFqbW5jbVJ2SjA0LXVoYlJHREpJc3YtaGtZS01KRmJfTlhUT09UZFE?oc=5" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n3" style="--n:3">
         <div class="entry-meta">
           <span class="rank" data-level="B">B</span>
-          <span class="source">ITmedia AI+</span>
+          <span class="source">Googleニュース（AI各社）</span>
         </div>
-        <p class="original">電通が「Geminiを使いこなすFDE」ら3000人育成プログラムを開始　その内容とは？</p>
-        <h2 class="translated">電通が「Geminiを使いこなすFDE」ら3000人育成プログラムを開始　その内容とは？</h2>
-        <div class="summary"><p>電通グループが「Gemini Enterprise」を活用できる人材約3000人の育成を開始した。</p><p>現場導入を支援するFDEおよびFDMという専門人材を養成しクライアント支援を強化する。</p><p>生成AIの単なるツール利用にとどまらず事業変革やマーケティング課題の解決を目指す。</p></div>
+        <p class="original">OpenAI countersues Apple over trade secrets as AI race heats up - Al Jazeera</p>
+        <h2 class="translated">AI競争激化のなか、OpenAIが営業秘密を巡りAppleを反訴</h2>
+        <div class="summary"><p>OpenAIが技術の不正利用や営業秘密の侵害などを理由にAppleを反訴した。</p><p>急拡大する生成AI業界において、先端技術や知的財産の保護を巡る対立が深まった。</p><p>主要プレイヤー間の法的トラブルは、今後の業界内での提携や開発速度に影響を与える。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>グループ全体で約3,000人規模を対象にGemini Enterprise活用に特化した専門人材（FDE/FDM）育成を開始した点。</p>
+          <p>従来の関係から一転し、OpenAIとApple間で技術秘密を巡る直接的な訴訟合戦へ発展した。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">FDE</span><span class="term-desc">顧客の現場に深く入り込んでシステム開発やAI実装を直接推進する技術者。</span></div><div class="term"><span class="term-name">Gemini Enterprise</span><span class="term-desc">企業向けに高度なセキュリティと機能を提供するGoogleの生成AIツール。</span></div></div>
-        <a class="link" href="https://atmarkit.itmedia.co.jp/ait/articles/2611/27/news038.html" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">反訴</span><span class="term-desc">訴訟の被告が、原告に対して関連する請求で新たに別腹の訴えを起こすこと。</span></div><div class="term"><span class="term-name">営業秘密</span><span class="term-desc">企業が秘密として管理している、公知になっていない価値ある技術や営業情報。</span></div></div>
+        <a class="link" href="https://news.google.com/rss/articles/CBMirAFBVV95cUxON1UyNzVUM1VWYllDUVB5Rl9LVDYwZExiMWt2WFp4eWVUckVjdDhqbFFfSXR1b2NiRm9LbFZQZ2xlZTNkRmtaSkZnb2M4ekJwVkVxbE1jdmNlazc2QUMxallwb1JpTWRvVk9ZOW12SVM5MTZ4RS1CQkNGcW5qZlMySWJZTjBkNXBtZXByR0NuVWdJZWVXWW8zcWRsTUF1ZUJXMlNVNWxEM2l0VThn0gGyAUFVX3lxTE16T05QbEdEbTdCUklBU3kyX05YX2RxaTZrVl9yWTEtWDF4dThXOFAyODNDTjFHTy1LRmJkZEJpd1E0eTBOaWxkS0NXV1BIWFo0V1ZTU01JMzd5bVpkMHFWTEhSNEVBT3E1cXd1NVJFbEJtSXFURGpxMzlKOWtNTXg1amFKZDhEOWttUlhkU1Y2UmVnSUgwRWZqWmJmTzdRaVBNM01pczFxTnh0RzYxRk02MFE?oc=5" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n4" style="--n:4">
         <div class="entry-meta">
-          <span class="rank" data-level="B">B</span>
+          <span class="rank" data-level="C">C</span>
           <span class="source">Zenn AI</span>
         </div>
-        <p class="original">キオクシアとNVIDIAはSSDでGPUメモリをどう広げる？ 1.1 PBの内訳</p>
-        <h2 class="translated">キオクシアとNVIDIAはSSDでGPUメモリをどう広げる？ 1.1 PBの内訳</h2>
-        <div class="summary"><p>キオクシアとNVIDIAがGPUから超大容量SSDへ直接アクセスする技術実証を行った。</p><p>18台のサーバーに計144台のSSDを接続し約1.1PBの膨大なデータ領域を構築した。</p><p>HBMに入り切らないデータをSSDから効率的に読み出しGPUのメモリ制限を補う。</p></div>
+        <p class="original">AIエージェントの原型は3本の論文にあった：ReAct、SWE-bench、SWE-agentを読み解く</p>
+        <h2 class="translated">AIエージェントの原型を探る：ReAct・SWE-bench・SWE-agent 3大論文の解説</h2>
+        <div class="summary"><p>現代のAIコーディングエージェントの基礎となった主要な3本の論文を時系列で解説。</p><p>思考と行動のループ、実世界評価軸、エージェント専用ツールの進化プロセスを分析。</p><p>開発エージェントが持つ「考え、試し、修正する」構造の原点と到達点を整理した。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>NVIDIAのGB200システムとキオクシアのSSDを組み合わせ、GPUからアクセス可能な外部ストレージを1.1PB規模まで拡張・実証した点。</p>
+          <p>単なるエージェント紹介ではなく、3つの基礎論文の相互関係から現代のAIエージェントの基本形を解き明かした。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">HBM</span><span class="term-desc">GPUのすぐ近くに配置される非常に高速かつ高帯域な専用メモリ。</span></div><div class="term"><span class="term-name">NVMe SSD</span><span class="term-desc">PCIeバスを介してデータを高速転送できるフラッシュストレージ。</span></div></div>
-        <a class="link" href="https://zenn.dev/student_blog/articles/kioxia-nvidia-ssd-gpu-memory-1pb" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">ReAct</span><span class="term-desc">言語モデルが思考（Reason）と行動（Act）を交互に繰り返して課題を解決する手法。</span></div><div class="term"><span class="term-name">SWE-bench</span><span class="term-desc">GitHubの実課題を用いてAIの実際のソフトウェア開発・バグ修正能力を測定する評価基準。</span></div><div class="term"><span class="term-name">幻覚</span><span class="term-desc">LLMが事実とは異なる情報や存在しない根拠をあたかも正しいかのように生成してしまう現象。</span></div></div>
+        <a class="link" href="https://zenn.dev/kentaro36/articles/ai-agent-foundation-papers" target="_blank" rel="noopener">原文を読む</a>
       </article>
       <article class="entry" id="n5" style="--n:5">
         <div class="entry-meta">
-          <span class="rank" data-level="C">C</span>
-          <span class="source">ITmedia AI+</span>
+          <span class="rank" data-level="B">B</span>
+          <span class="source">Hacker News (150点以上)</span>
         </div>
-        <p class="original">AIエージェントの行動が「適切か暴走か」をどう見極める？　Googleが明かすテストの盲点</p>
-        <h2 class="translated">AIエージェントの行動が「適切か暴走か」をどう見極める？ Googleが明かすテストの盲点</h2>
-        <div class="summary"><p>GoogleがAIエージェントの行動や安全性を適切に評価するための検証ポイントを解説した。</p><p>最終出力結果のチェックだけでは途中の不適切な処理や確認不足を見逃す危険性を指摘する。</p><p>実際に動作させるテストと計画のみを出力させるテストを組み合わせる重要性を提示した。</p></div>
+        <p class="original">Google's DeepCrossAttention achieves comparable model quality up to 3x faster</p>
+        <h2 class="translated">GoogleがDeepCrossAttentionを発表：最大3倍高速で同等のモデル品質を実現</h2>
+        <div class="summary"><p>Googleがトランスフォーマーの残差接続を刷新する新アーキテクチャDCAを発表した。</p><p>過去の層の表現を動的に選別・結合することで深い層での情報の希釈化問題を解消。</p><p>パラメータ増を0.2%未満に抑えつつ、最大3倍の高速化や30%の軽量化を達成した。</p></div>
         <div class="diff">
           <span class="diff-label">何が変わったか</span>
-          <p>AIエージェントの評価において最終出力だけでなく実行プロセスやツール呼び出し履歴まで検証すべきという評価設計の落とし穴を明らかにした点。</p>
+          <p>固定の足し算だった残差接続を動的なクロスアテンションへと拡張し、モデル品質と学習効率を大幅向上させた。</p>
         </div>
-        <div class="terms"><div class="term"><span class="term-name">LLM-as-a-Judge</span><span class="term-desc">大型言語モデルを評価者として使い他のモデルの回答品質を自動判定する手法。</span></div><div class="term"><span class="term-name">AIエージェント</span><span class="term-desc">自律的に状況を判断しツール選択やタスク実行を繰り返して目標を達成するシステム。</span></div></div>
-        <a class="link" href="https://atmarkit.itmedia.co.jp/ait/articles/2611/27/news035.html" target="_blank" rel="noopener">原文を読む</a>
+        <div class="terms"><div class="term"><span class="term-name">残差接続</span><span class="term-desc">層の入力を出力へ直接スキップさせて足し合わせ、情報の減衰を防ぐネットワーク構造。</span></div><div class="term"><span class="term-name">勾配消失問題</span><span class="term-desc">ネットワークが深くなると学習時の勾配が小さくなり、適切な学習が行えなくなる現象。</span></div><div class="term"><span class="term-name">パープレキシティ</span><span class="term-desc">言語モデルの予測の不確実性を表す指標で、値が小さいほど正確な予測ができていることを示す。</span></div></div>
+        <a class="link" href="https://research.google/blog/supercharging-transformer-residual-connections/" target="_blank" rel="noopener">原文を読む</a>
       </article>
     <footer class="foot">
       <p class="foot-label">過去の分</p>
-      <nav class="archive"><a href="log/2026-11-27.html">11/27</a><a href="log/2026-11-26.html">11/26</a><a href="log/2026-11-25.html">11/25</a><a href="log/2026-11-24.html">11/24</a><a href="log/2026-11-23.html">11/23</a><a href="log/2026-11-22.html">11/22</a><a href="log/2026-11-21.html">11/21</a><a href="log/2026-11-20.html">11/20</a><a href="log/2026-11-19.html">11/19</a><a href="log/2026-11-18.html">11/18</a><a href="log/2026-11-17.html">11/17</a><a href="log/2026-11-16.html">11/16</a><a href="log/2026-11-15.html">11/15</a><a href="log/2026-11-14.html">11/14</a></nav>
+      <nav class="archive"><a href="log/2026-11-28.html">11/28</a><a href="log/2026-11-27.html">11/27</a><a href="log/2026-11-26.html">11/26</a><a href="log/2026-11-25.html">11/25</a><a href="log/2026-11-24.html">11/24</a><a href="log/2026-11-23.html">11/23</a><a href="log/2026-11-22.html">11/22</a><a href="log/2026-11-21.html">11/21</a><a href="log/2026-11-20.html">11/20</a><a href="log/2026-11-19.html">11/19</a><a href="log/2026-11-18.html">11/18</a><a href="log/2026-11-17.html">11/17</a><a href="log/2026-11-16.html">11/16</a><a href="log/2026-11-15.html">11/15</a></nav>
     </footer>
   </main>
 </body>
